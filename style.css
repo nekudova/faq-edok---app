@@ -29,12 +29,13 @@ h1 {
 .faq-question {
     font-weight: bold;
     cursor: pointer;
+    color: #FF9800; /* Oranžová barva */
 }
 
 .faq-answer {
     display: none;
     padding-top: 5px;
-    color: #555;
+    color: #008080; /* Petrolejová barva */
     max-height: none;  /* Zrušení omezení výšky */
     white-space: normal;  /* Povolit zalomení textu */
     word-wrap: break-word;  /* Dlouhá slova se zalomí */
