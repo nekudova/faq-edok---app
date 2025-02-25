@@ -35,4 +35,8 @@ h1 {
     display: none;
     padding-top: 5px;
     color: #555;
+    max-height: none;  /* Zrušení omezení výšky */
+    white-space: normal;  /* Povolit zalomení textu */
+    word-wrap: break-word;  /* Dlouhá slova se zalomí */
+    overflow: visible;  /* Zabránění skrytí textu */
 }
