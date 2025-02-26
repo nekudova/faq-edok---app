@@ -18,7 +18,7 @@ document.getElementById("faqForm").addEventListener("submit", function(event) {
     var question = document.getElementById("question").value;
     var status = document.getElementById("status");
 
-    fetch("https://script.google.com/macros/s/AKfycbyg_YANNiTcmfUMllyLdrbYd3aMxH5kNeHl4F7mfBJVIfGAbHVAL_wKsZFDIEen1GOH/exec", { // Sem vlož svůj Google Apps Script odkaz!
+    fetch("https://script.google.com/macros/s/AKfycbw9yHkfHF0uM0eOThpD47W7Bu3ZqIfYqsrUFwgjn41JJcnMY995FHO3lVQP5Ptbw5Dk/exec", { // Sem vlož svůj Google Apps Script odkaz!
         method: "POST",
         mode: "no-cors",
         headers: {
