@@ -15,9 +15,10 @@ document.getElementById("faqForm").addEventListener("submit", function (event) {
     var question = document.getElementById("question").value;
     var status = document.getElementById("status");
 
-    fetch("https://script.google.com/macros/s/AKfycbzlRlxA36AL_04qxFW9y5M9S73qzdWN7u4FB7OLZquyjJKhOXjN0mLLW91oPyAoVLuo/exec?question=" + encodeURIComponent(question), {
+    fetch("https://script.google.com/macros/s/AKfycbzYf3HS1J5QkBqQuYxhjARRIN6MYcFCDCLCgEH-IEtBCJwfiXfsUeMKDRbbqeDObiLy/exec?question=" + encodeURIComponent(question), {
     method: "GET"
 })
+   
     .then(response => response.text())
     .then(data => {
         status.innerText = data;
