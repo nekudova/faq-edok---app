@@ -15,6 +15,44 @@ body {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     width: 400px;
 }
+.faq-container {
+    margin-top: 20px; /* Přidá mezeru mezi formulářem a boxem */
+}
+
+#faqForm {
+    display: flex;
+    flex-direction: column; /* Zarovnání formuláře vertikálně */
+    width: 400px; /* Stejná šířka jako FAQ box */
+    margin: 0 auto; /* Vycentrování */
+}
+
+#faqForm input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px; /* Mezera mezi polem a tlačítkem */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#faqForm button {
+    background-color: #FF9800; /* Oranžová barva */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#faqForm button:hover {
+    background-color: #e68900;
+}
+
+#status {
+    text-align: center;
+    color: green;
+    font-weight: bold;
+    margin-top: 10px;
+}
 
 h1 {
     text-align: center;
