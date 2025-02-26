@@ -54,10 +54,11 @@ body {
     margin-top: 10px;
 }
 
-h1 {
-    text-align: center;
+h1, h2 {
+    text-align: left;
     color: #333;
 }
+
 
 .faq-item {
     border-bottom: 1px solid #ddd;
