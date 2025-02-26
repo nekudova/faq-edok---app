@@ -79,3 +79,25 @@ h1 {
     word-wrap: break-word;  /* Dlouhá slova se zalomí */
     overflow: visible;  /* Zabránění skrytí textu */
 }
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px; /* Rozestup mezi formulářem a FAQ boxem */
+    margin-top: 50px;
+}
+
+#faqForm {
+    display: flex;
+    flex-direction: column;
+    width: 400px; /* Stejná šířka jako FAQ box */
+}
+
+.faq-container {
+    width: 400px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
