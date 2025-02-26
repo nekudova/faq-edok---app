@@ -16,8 +16,8 @@ document.getElementById("faqForm").addEventListener("submit", function (event) {
     var status = document.getElementById("status");
 
     fetch("https://script.google.com/macros/s/AKfycbzlRlxA36AL_04qxFW9y5M9S73qzdWN7u4FB7OLZquyjJKhOXjN0mLLW91oPyAoVLuo/exec?question=" + encodeURIComponent(question), {
-        method: "GET"
-    })
+    method: "GET"
+})
     .then(response => response.text())
     .then(data => {
         status.innerText = data;
