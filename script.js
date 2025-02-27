@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const faqContainer = document.getElementById("faq-container");
     const adminSection = document.getElementById("admin-section");
-    const loginForm = document.getElementById("login-form");
+    const loginSection = document.getElementById("login-section");
     const passwordInput = document.getElementById("password-input");
     const loginBtn = document.getElementById("login-btn");
     const logoutBtn = document.getElementById("logout-btn");
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const newAnswerInput = document.getElementById("new-answer");
 
     const ADMIN_PASSWORD = "Budelip25";
-
+    
     let questions = JSON.parse(localStorage.getItem("questions")) || [
         { question: "Co je tato aplikace?", answer: "Jednoduchá FAQ aplikace." },
         { question: "Jak správně formulovat radu?", answer: "Vždy uveďte konkrétní příklad." }
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const password = passwordInput.value.trim();
         if (password === ADMIN_PASSWORD) {
             adminSection.classList.remove("hidden");
-            loginForm.classList.add("hidden");
+            loginSection.classList.add("hidden");
             passwordInput.value = "";
             renderFAQ();
         } else {
@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     logoutBtn.addEventListener("click", function () {
         adminSection.classList.add("hidden");
-        loginForm.classList.remove("hidden");
+        loginSection.classList.remove("hidden");
         renderFAQ();
     });
 
