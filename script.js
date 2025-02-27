@@ -28,8 +28,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 ` : ""}
             `;
 
+            // ✅ Opraveno: Kliknutí na otázku nyní správně zobrazí odpověď
             questionDiv.querySelector(".faq-question").addEventListener("click", function () {
-                this.nextElementSibling.classList.toggle("visible");
+                let answer = this.nextElementSibling;
+                answer.classList.toggle("visible");
             });
 
             if (isAdmin) {
@@ -91,4 +93,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     addQuestionBtn.addEventListener("click", function () {
         const questionText = newQuestionInput.value.trim();
-        const answerT
+        const answerText = newAnswerInput.value.trim();
+        if (questionText && answerText) {
+            questions.push({ question: questionText, answer
