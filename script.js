@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const adminPassword = "Budelip25";
     let faqData = [];
 
+    // Funkce pro vykreslení otázek
     function renderFAQs() {
         faqList.innerHTML = "";
         faqData.forEach((faq, index) => {
@@ -31,10 +32,12 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    // Funkce pro uložení do localStorage
     function saveFAQs() {
         localStorage.setItem("faqData", JSON.stringify(faqData));
     }
 
+    // Funkce pro načtení otázek
     function loadFAQs() {
         const savedData = localStorage.getItem("faqData");
         if (savedData) {
@@ -43,11 +46,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    // Kliknutí na tlačítko "Přihlásit"
     showAdminBtn.addEventListener("click", function () {
         adminLogin.classList.remove("hidden");
         showAdminBtn.classList.add("hidden");
     });
 
+    // Ověření hesla a zobrazení administrace
     submitPassword.addEventListener("click", function () {
         if (passwordInput.value === adminPassword) {
             adminLogin.classList.add("hidden");
@@ -58,11 +63,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    // Tlačítko odhlášení
     logoutBtn.addEventListener("click", function () {
         adminPanel.classList.add("hidden");
         showAdminBtn.classList.remove("hidden");
     });
 
+    // Přidání nové otázky
     addQuestionBtn.addEventListener("click", function () {
         const question = newQuestionInput.value.trim();
         const answer = newAnswerInput.value.trim();
@@ -75,5 +82,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    // Načíst otázky při startu
     loadFAQs();
 });
