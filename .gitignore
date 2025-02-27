@@ -1,1 +1,6 @@
+# Ignorování souboru s tokenem
 .env
+
+# Ignorování složek, které nemají být v repozitáři
+node_modules/
+.DS_Store
