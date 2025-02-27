@@ -10,23 +10,30 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
- fetch("https://script.google.com/macros/s/AKfycbxWOdauNi1Zie5whFJmWR5rH7E2ceLo5P8Oef9E5jth0SBVYZLPx4fh1E4RVXWYQTre/exec", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ question: question })
-})
-.then(response => response.json())
-.then(data => {
-    if (data.status === "success") {
-        status.innerText = "Otázka byla úspěšně odeslána!";
-        document.getElementById("faqForm").reset();
-    } else {
-        status.innerText = "Chyba: " + data.message;
-    }
-})
-.catch(error => {
-    status.innerText = "Chyba při odeslání!";
-    console.error("Chyba:", error);
+        fetch("https://script.google.com/macros/s/AKfycbyMoNlZ3w_XFwLs71GSwpQQ5PEZnlHqiWoK03zrFDeOKbeyr-H7rdEVboHSX9GrciJi/exec", {  
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ question: question })
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Chyba: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.status === "success") {
+                status.innerText = "Otázka byla úspěšně odeslána!";
+                document.getElementById("faqForm").reset();
+            } else {
+                status.innerText = "Chyba: " + data.message;
+            }
+        })
+        .catch(error => {
+            status.innerText = "Chyba při odeslání!";
+            console.error("Chyba:", error);
+        });
+    });
 });
