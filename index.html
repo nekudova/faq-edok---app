@@ -8,19 +8,22 @@
 </head>
 <body>
     <div class="container">
-        <!-- Formulář pro správce -->
-        <div id="admin-panel">
-            <h2>Přidat otázku</h2>
-            <input type="text" id="new-question" placeholder="Zadejte otázku">
-            <input type="text" id="new-answer" placeholder="Zadejte odpověď">
-            <button onclick="addQuestion()">Přidat otázku</button>
-        </div>
-
-        <!-- FAQ Sekce -->
         <div class="faq-container">
             <h1>Často kladené otázky</h1>
             <div id="faq-list"></div>
         </div>
+    </div>
+
+    <div id="admin-panel">
+        <h2>Přidat novou otázku</h2>
+        <input type="text" id="new-question" placeholder="Zadejte otázku...">
+        <input type="text" id="new-answer" placeholder="Zadejte odpověď...">
+        <button onclick="addQuestion()">Přidat</button>
+
+        <h2>Správa otázek</h2>
+        <button onclick="exportQuestions()">📤 Export</button>
+        <input type="file" id="import-file" accept=".json">
+        <button onclick="document.getElementById('import-file').click()">📥 Import</button>
     </div>
 
     <script src="script.js"></script>
