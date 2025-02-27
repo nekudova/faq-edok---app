@@ -8,12 +8,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const newAnswerInput = document.getElementById("new-answer");
 
     const ADMIN_PASSWORD = "Budelip25";
+    const GITHUB_USERNAME = "nekudova";  // Váš GitHub username
+    const REPO_NAME = "faq-edok---app";  // Název repozitáře
+    const FILE_PATH = "questions.json";  // Cesta k souboru
+    const GITHUB_API_URL = `https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}/contents/${FILE_PATH}`;
 
     let questions = [];
 
-    // Funkce pro načtení otázek z GitHub JSON souboru
-    function loadQuestions() {
-        fetch("https://raw.githubusercontent.com/nekudova/faq-edok---app/refs/heads/main/questions.json")
+    function fetchQuestions() {
+        fetch(`https://raw.githubusercontent.com/${GITHUB_USERNAME}/${REPO_NAME}/main/${FILE_PATH}`)
             .then(response => response.json())
             .then(data => {
                 questions = data;
@@ -22,8 +25,27 @@ document.addEventListener("DOMContentLoaded", function () {
             .catch(error => console.error("Chyba při načítání otázek:", error));
     }
 
-    function saveQuestions() {
-        localStorage.setItem("questions", JSON.stringify(questions));
+    function saveQuestionsToGitHub() {
+        const updatedContent = btoa(JSON.stringify(questions, null, 2));
+
+        fetch(GITHUB_API_URL, {
+            method: "PUT",
+            headers: {
+                "Authorization": `token GITHUB_PERSONAL_ACCESS_TOKEN`,  // Sem vložte svůj GitHub token!
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                message: "Aktualizace FAQ",
+                content: updatedContent,
+                sha: localStorage.getItem("github_sha") // SHA kód pro správné přepsání souboru
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            localStorage.setItem("github_sha", data.content.sha);  // Uložení SHA kódu pro další aktualizace
+            renderFAQ();
+        })
+        .catch(error => console.error("Chyba při ukládání na GitHub:", error));
     }
 
     function renderFAQ() {
@@ -35,11 +57,11 @@ document.addEventListener("DOMContentLoaded", function () {
             const questionElement = document.createElement("div");
             questionElement.classList.add("faq-question");
             questionElement.textContent = item.question;
-            
+
             const answerElement = document.createElement("div");
             answerElement.classList.add("faq-answer");
             answerElement.textContent = item.answer;
-            answerElement.style.display = "none";  
+            answerElement.style.display = "none";
 
             questionElement.addEventListener("click", function () {
                 answerElement.style.display = answerElement.style.display === "none" ? "block" : "none";
@@ -57,8 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     const newA = prompt("Upravte odpověď:", item.answer);
                     if (newQ && newA) {
                         questions[index] = { question: newQ, answer: newA };
-                        saveQuestions();
-                        renderFAQ();
+                        saveQuestionsToGitHub();
                     }
                 });
 
@@ -68,8 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 deleteBtn.addEventListener("click", function () {
                     if (confirm("Opravdu chcete smazat tuto otázku?")) {
                         questions.splice(index, 1);
-                        saveQuestions();
-                        renderFAQ();
+                        saveQuestionsToGitHub();
                     }
                 });
 
@@ -103,8 +123,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const newA = newAnswerInput.value.trim();
         if (newQ && newA) {
             questions.push({ question: newQ, answer: newA });
-            saveQuestions();
-            renderFAQ();
+            saveQuestionsToGitHub();
             newQuestionInput.value = "";
             newAnswerInput.value = "";
         } else {
@@ -112,6 +131,5 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Načíst otázky při startu
-    loadQuestions();
+    fetchQuestions();
 });
