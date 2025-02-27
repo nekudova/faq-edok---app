@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        fetch("https://script.google.com/macros/s/AKfycbwRKgXjlXxmF8EHplyg46W82OKhBiN1gJ23Pr34sjzpcP5mo41jmq46im_Rm9cikJQV/exec", {  
+        fetch("https://script.google.com/macros/s/AKfycbwAcNa-f_SrpjeCtDIlXsApubgcipfWJka1m4AZ6KomJktGq--l02r7O0qJgfJLtVO7/exec", {  
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
