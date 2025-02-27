@@ -1,39 +1,32 @@
 document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("faqForm").addEventListener("submit", function (event) {
-        event.preventDefault();
+    fetch("PASTE_GOOGLE_SCRIPT_URL_HERE")
+    .then(response => response.json())
+    .then(data => {
+        const faqList = document.getElementById("faq-list");
+        faqList.innerHTML = "";
 
-        var question = document.getElementById("question").value;
-        var status = document.getElementById("status");
+        data.forEach(entry => {
+            const faqItem = document.createElement("div");
+            faqItem.classList.add("faq-item");
 
-        if (!question.trim()) {
-            status.innerText = "Zadejte otázku!";
-            return;
-        }
+            const question = document.createElement("div");
+            question.classList.add("faq-question");
+            question.innerText = entry.question;
+            faqItem.appendChild(question);
 
-        fetch("https://script.google.com/macros/s/AKfycbyMoNlZ3w_XFwLs71GSwpQQ5PEZnlHqiWoK03zrFDeOKbeyr-H7rdEVboHSX9GrciJi/exec", {  
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ question: question })
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Chyba: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            if (data.status === "success") {
-                status.innerText = "Otázka byla úspěšně odeslána!";
-                document.getElementById("faqForm").reset();
-            } else {
-                status.innerText = "Chyba: " + data.message;
-            }
-        })
-        .catch(error => {
-            status.innerText = "Chyba při odeslání!";
-            console.error("Chyba:", error);
+            const answer = document.createElement("div");
+            answer.classList.add("faq-answer");
+            answer.innerText = entry.answer;
+            faqItem.appendChild(answer);
+
+            question.addEventListener("click", () => {
+                answer.style.display = answer.style.display === "block" ? "none" : "block";
+            });
+
+            faqList.appendChild(faqItem);
         });
+    })
+    .catch(error => {
+        console.error("Chyba při načítání FAQ:", error);
     });
 });
