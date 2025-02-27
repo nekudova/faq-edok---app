@@ -1,67 +1,76 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #ffe5b4;
+    background-color: #FCE5CD;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
     height: 100vh;
     margin: 0;
 }
 
-.faq-container {
-    background: #008080;
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
+.container {
+    width: 80%;
+    max-width: 800px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 50%;
 }
 
-h1 {
-    margin-bottom: 15px;
+.faq-header {
+    background-color: #007575;
+    color: white;
+    padding: 15px;
+    font-size: 24px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.faq-list {
+    width: 100%;
 }
 
 .faq-item {
     background: white;
-    padding: 10px;
-    border-radius: 5px;
-    margin: 10px 0;
-    font-weight: bold;
-    color: #008080;
-}
-
-.faq-answer {
-    color: black;
-    font-weight: normal;
-}
-
-.btn-login, .btn-logout, #add-question, #export-btn, #import-btn {
-    background-color: orange;
-    color: white;
-    border: none;
-    padding: 10px;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-    margin: 10px 5px;
-    border-radius: 5px;
 }
 
-.admin-container {
-    background: #008080;
-    padding: 20px;
-    color: white;
-    border-radius: 10px;
-    text-align: center;
-    width: 50%;
-    margin-top: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: opacity 0.5s, transform 0.5s;
+.faq-item .faq-question {
+    font-weight: bold;
+    color: #007575;
 }
 
-/* Skrytí administrace na začátku */
+.faq-item .faq-answer {
+    display: none;
+    margin-top: 10px;
+    color: black;
+}
+
 .hidden {
-    opacity: 0;
-    transform: translateY(-20px);
-    pointer-events: none;
+    display: none;
+}
+
+.login-btn, #submit-password, .logout-btn, #add-question {
+    background-color: #FF9800;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.login-form {
+    margin-top: 15px;
+}
+
+#admin-panel {
+    background: #007575;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    margin-top: 20px;
+    text-align: center;
 }
