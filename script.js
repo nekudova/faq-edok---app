@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const answerElement = document.createElement("div");
             answerElement.classList.add("faq-answer");
             answerElement.textContent = item.answer;
-            answerElement.style.display = "none";  // Odpovědi jsou skryté na začátku
+            answerElement.style.display = "none";  
 
             questionElement.addEventListener("click", function () {
                 answerElement.style.display = answerElement.style.display === "none" ? "block" : "none";
