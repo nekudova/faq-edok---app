@@ -16,12 +16,12 @@
         "answer": "Produkt, který byl klientovi doporučen a sjednán, odpovídá jeho požadavkům a cílům, a to tak, jak jsou zaznamenány v tabulce tohoto záznamu z jednání. Tabulka specifikuje požadavky klienta, doporučenou variantu a sjednané krytí. Klient požadoval [uveď hlavní požadavek, např. krytí hypotéky], doporučil jsem variantu s [uveď důvod doporučení např. komplexní krytí, nejlepší poměr cena/výkon, širší spektrum připojištění], a nakonec byla sjednána možnost s [uveď konkrétní parametry sjednaného produktu]."
     },
     {
-        "question": "Jak mohu smazat otázku?",
-        "answer": "Odstraňte odpovídající objekt v JSON souboru."
+        "question": "Vybraný produkt, nastavení a zvolená pojišťovna plně vyhovuje požadavkům klienta. (jiak)",
+        "answer": "Produkt byl klientovi doporučen s ohledem na jeho požadavky, které jsou detailně uvedeny v tabulce tohoto záznamu z jednání. Klient požadoval [uveď hlavní požadavek], přičemž jsme porovnali více variant a doporučil jsem tu, která nejlépe odpovídala jeho potřebám. Důvodem výběru byla [uveď klíčový důvod doporučení, např. komplexní krytí, nejlepší poměr cena/výkon, širší spektrum připojištění]. Klient byl seznámen s výhodami a omezeními doporučené varianty, na základě toho se rozhodl pro sjednání produktu s [uveď hlavní parametry sjednaného produktu]. Sjednaný produkt odpovídá konečnému rozhodnutí klienta a reflektuje jeho preference a finanční situaci."
     },
     {
-        "question": "Lze měnit pořadí otázek?",
-        "answer": "Ano, můžete je přesunout libovolně v rámci souboru."
+        "question": "Záznam odpovídá vašim potřebám.",
+        "answer": "Doporučený produkt odpovídá parametrům uvedeným v tabulce záznamu, kde jsou specifikovány požadavky klienta, doporučená varianta a sjednané krytí. Klient požadoval [uveď klíčový požadavek], doporučil jsme [uveď důvod doporučení např. komplexní krytí, nejlepší poměr cena/výkon, širší spektrum připojištění] a nakonec byla sjednána varianta s [uveď hlavní parametry sjednaného produktu]. Sjednaný produkt odpovídá konečnému rozhodnutí klienta a reflektuje jeho preference a finanční situaci."
     },
     {
         "question": "Podporuje aplikace více jazyků?",
