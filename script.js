@@ -35,7 +35,6 @@ document.addEventListener("DOMContentLoaded", function () {
             answerElement.textContent = item.answer;
             answerElement.style.display = "none";
 
-            // Kliknutí na otázku zobrazí odpověď
             questionElement.addEventListener("click", function () {
                 answerElement.style.display = answerElement.style.display === "none" ? "block" : "none";
             });
@@ -50,14 +49,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 editBtn.addEventListener("click", function () {
                     const newQ = prompt("Upravte otázku:", item.question);
                     const newA = prompt("Upravte odpověď:", item.answer);
-                    if (newQ !== null && newA !== null) {
-                        if (newQ.trim() !== "" && newA.trim() !== "") {
-                            questions[index] = { question: newQ, answer: newA };
-                            saveQuestions();
-                            renderFAQ();
-                        } else {
-                            alert("Otázka ani odpověď nesmí být prázdná!");
-                        }
+                    if (newQ !== null && newA !== null && newQ.trim() !== "" && newA.trim() !== "") {
+                        questions[index] = { question: newQ, answer: newA };
+                        saveQuestions();
+                        renderFAQ();
+                    } else {
+                        alert("Otázka ani odpověď nesmí být prázdná!");
                     }
                 });
 
@@ -81,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     loginBtn.addEventListener("click", function () {
-        const password = passwordInput.value;
+        const password = passwordInput.value.trim();
         if (password === ADMIN_PASSWORD) {
             adminSection.classList.remove("hidden");
             loginForm.classList.add("hidden");
