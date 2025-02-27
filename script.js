@@ -1,107 +1,98 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const faqContainer = document.getElementById("faq-container");
-    const loginBtn = document.getElementById("login-btn");
-    const logoutBtn = document.getElementById("logout-btn");
-    const adminSection = document.getElementById("admin-section");
-    const addQuestionBtn = document.getElementById("add-question-btn");
-    const questionInput = document.getElementById("question-input");
-    const answerInput = document.getElementById("answer-input");
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffebcd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
 
-    const ADMIN_PASSWORD = "Budelip25";
-    let isAdmin = false;
+.container {
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+}
 
-    function loadQuestions() {
-        const storedQuestions = JSON.parse(localStorage.getItem("faq")) || [];
-        faqContainer.innerHTML = "";
+h1 {
+    background-color: #008080;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
 
-        storedQuestions.forEach((item, index) => {
-            const questionBox = document.createElement("div");
-            questionBox.classList.add("faq-item");
+.faq-item {
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
 
-            const questionText = document.createElement("p");
-            questionText.classList.add("faq-question");
-            questionText.textContent = item.question;
-            questionText.addEventListener("click", () => {
-                answerBox.classList.toggle("hidden");
-            });
+.faq-question {
+    font-weight: bold;
+    color: #008080;
+    cursor: pointer;
+}
 
-            const answerBox = document.createElement("p");
-            answerBox.classList.add("faq-answer", "hidden");
-            answerBox.textContent = item.answer;
+.faq-answer {
+    display: none;
+    margin-top: 10px;
+}
 
-            questionBox.appendChild(questionText);
-            questionBox.appendChild(answerBox);
+.faq-item .faq-answer.hidden {
+    display: none;
+}
 
-            if (isAdmin) {
-                const editBtn = document.createElement("button");
-                editBtn.textContent = "✏️ Upravit";
-                editBtn.addEventListener("click", () => editQuestion(index));
+button {
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
 
-                const deleteBtn = document.createElement("button");
-                deleteBtn.textContent = "❌ Smazat";
-                deleteBtn.addEventListener("click", () => deleteQuestion(index));
+button:hover {
+    background-color: #e68900;
+}
 
-                questionBox.appendChild(editBtn);
-                questionBox.appendChild(deleteBtn);
-            }
+.hidden {
+    display: none;
+}
 
-            faqContainer.appendChild(questionBox);
-        });
-    }
+#admin-section {
+    background: #008080;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    margin-top: 20px;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+}
 
-    function saveQuestions(questions) {
-        localStorage.setItem("faq", JSON.stringify(questions));
-        loadQuestions();
-    }
+#admin-section input {
+    width: 80%;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
 
-    function addQuestion() {
-        const question = questionInput.value.trim();
-        const answer = answerInput.value.trim();
-        if (question && answer) {
-            const storedQuestions = JSON.parse(localStorage.getItem("faq")) || [];
-            storedQuestions.push({ question, answer });
-            saveQuestions(storedQuestions);
-            questionInput.value = "";
-            answerInput.value = "";
-        }
-    }
+#admin-section button {
+    background-color: #ff9800;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-    function editQuestion(index) {
-        const storedQuestions = JSON.parse(localStorage.getItem("faq"));
-        const newQuestion = prompt("Upravte otázku:", storedQuestions[index].question);
-        const newAnswer = prompt("Upravte odpověď:", storedQuestions[index].answer);
-        if (newQuestion !== null && newAnswer !== null) {
-            storedQuestions[index] = { question: newQuestion, answer: newAnswer };
-            saveQuestions(storedQuestions);
-        }
-    }
-
-    function deleteQuestion(index) {
-        const storedQuestions = JSON.parse(localStorage.getItem("faq"));
-        storedQuestions.splice(index, 1);
-        saveQuestions(storedQuestions);
-    }
-
-    loginBtn.addEventListener("click", function () {
-        const password = prompt("Zadejte heslo:");
-        if (password === ADMIN_PASSWORD) {
-            isAdmin = true;
-            adminSection.classList.remove("hidden");
-            loginBtn.classList.add("hidden");
-            loadQuestions();
-        } else {
-            alert("Špatné heslo!");
-        }
-    });
-
-    logoutBtn.addEventListener("click", function () {
-        isAdmin = false;
-        adminSection.classList.add("hidden");
-        loginBtn.classList.remove("hidden");
-        loadQuestions();
-    });
-
-    addQuestionBtn.addEventListener("click", addQuestion);
-
-    loadQuestions();
-});
+#admin-section button:hover {
+    background-color: #e68900;
+}
