@@ -1,14 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const faqContainer = document.getElementById("faq-container");
+    const loginToggle = document.getElementById("login-toggle");
     const loginBtn = document.getElementById("login-btn");
     const logoutBtn = document.getElementById("logout-btn");
     const adminSection = document.getElementById("admin-section");
+    const passwordInput = document.getElementById("password");
     const addQuestionBtn = document.getElementById("add-question-btn");
-    const faqContainer = document.getElementById("faq-container");
     const newQuestionInput = document.getElementById("new-question");
     const newAnswerInput = document.getElementById("new-answer");
 
     let isAdmin = false;
-    const adminPassword = "Budelip25"; 
+    const adminPassword = "Budelip25";
     let questions = JSON.parse(localStorage.getItem("questions")) || [];
 
     function renderQuestions() {
@@ -58,12 +60,19 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("questions", JSON.stringify(questions));
     }
 
+    loginToggle.addEventListener("click", function () {
+        adminSection.style.display = "block";
+        loginToggle.style.display = "none";
+    });
+
     loginBtn.addEventListener("click", function () {
-        const password = prompt("Zadejte heslo:");
+        const password = passwordInput.value;
         if (password === adminPassword) {
             isAdmin = true;
             adminSection.style.display = "block";
-            loginBtn.style.display = "none";
+            logoutBtn.classList.remove("hidden");
+            loginBtn.classList.add("hidden");
+            passwordInput.classList.add("hidden");
             renderQuestions();
         } else {
             alert("Špatné heslo!");
@@ -72,4 +81,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     logoutBtn.addEventListener("click", function () {
         isAdmin = false;
-        adminSection.style.displa
+        adminSection.style.display = "none";
+        loginToggle.style.display = "block";
+        logoutBtn.classList.add("hidden");
+        loginBtn.classList.remove("hidden");
+        passwordInput.classList.remove("hidden");
+        renderQuestions();
+    });
+
+    addQuestionBtn.addEventListener("click", function () {
+        const questionText = newQuestionInput.value.trim();
+        const answerT
