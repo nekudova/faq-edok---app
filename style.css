@@ -1,98 +1,67 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #ffebcd;
+    background-color: #ffe5b4;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
     margin: 0;
 }
 
-.container {
-    width: 90%;
-    max-width: 800px;
+.faq-container {
+    background: #008080;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
     text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 50%;
 }
 
 h1 {
-    background-color: #008080;
-    color: white;
-    padding: 10px;
-    border-radius: 10px;
+    margin-bottom: 15px;
 }
 
 .faq-item {
     background: white;
-    border-radius: 8px;
-    padding: 15px;
+    padding: 10px;
+    border-radius: 5px;
     margin: 10px 0;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    text-align: left;
-}
-
-.faq-question {
     font-weight: bold;
     color: #008080;
-    cursor: pointer;
 }
 
 .faq-answer {
-    display: none;
-    margin-top: 10px;
+    color: black;
+    font-weight: normal;
 }
 
-.faq-item .faq-answer.hidden {
-    display: none;
-}
-
-button {
-    background-color: #ff9800;
+.btn-login, .btn-logout, #add-question, #export-btn, #import-btn {
+    background-color: orange;
     color: white;
     border: none;
     padding: 10px;
-    margin: 5px;
     cursor: pointer;
+    margin: 10px 5px;
     border-radius: 5px;
-    font-size: 14px;
 }
 
-button:hover {
-    background-color: #e68900;
-}
-
-.hidden {
-    display: none;
-}
-
-#admin-section {
+.admin-container {
     background: #008080;
     padding: 20px;
+    color: white;
     border-radius: 10px;
-    color: white;
-    margin-top: 20px;
-    width: 90%;
-    max-width: 600px;
     text-align: center;
+    width: 50%;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.5s, transform 0.5s;
 }
 
-#admin-section input {
-    width: 80%;
-    padding: 10px;
-    margin: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-#admin-section button {
-    background-color: #ff9800;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#admin-section button:hover {
-    background-color: #e68900;
+/* Skrytí administrace na začátku */
+.hidden {
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
 }
