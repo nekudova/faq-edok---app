@@ -10,9 +10,9 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-       fetch("https://script.google.com/macros/s/AKfycbwE3c_jUB9EznJVSC9ZQGgVxcFoe9vZMalivM0PG2wTpf2LzyqCLPbFr-h46iUqlcuW/exec", {  
+      fetch("https://script.google.com/macros/s/AKfycbwE3c_jUB9EznJVSC9ZQGgVxcFoe9vZMalivM0PG2wTpf2LzyqCLPbFr-h46iUqlcuW/exec", {  
     method: "POST",
-    mode: "cors", // Povolit CORS
+    mode: "no-cors", // Povolit i bez odpovědi
     headers: {
         "Content-Type": "application/json"
     },
