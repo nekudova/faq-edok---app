@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const newAnswerInput = document.getElementById("new-answer");
 
     const ADMIN_PASSWORD = "Budelip25";
-    
+
     let questions = JSON.parse(localStorage.getItem("questions")) || [
         { question: "Co je tato aplikace?", answer: "Jednoduchá FAQ aplikace." },
         { question: "Jak správně formulovat radu?", answer: "Vždy uveďte konkrétní příklad." }
@@ -36,7 +36,9 @@ document.addEventListener("DOMContentLoaded", function () {
             answerElement.style.display = "none";
 
             questionElement.addEventListener("click", function () {
-                answerElement.style.display = answerElement.style.display === "none" ? "block" : "none";
+                const allAnswers = document.querySelectorAll(".faq-answer");
+                allAnswers.forEach(ans => ans.style.display = "none");
+                answerElement.style.display = "block";
             });
 
             faqItem.appendChild(questionElement);
@@ -45,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!adminSection.classList.contains("hidden")) {
                 const editBtn = document.createElement("button");
                 editBtn.textContent = "✏️ Upravit";
-                editBtn.classList.add("add-btn");
+                editBtn.classList.add("edit-btn");
                 editBtn.addEventListener("click", function () {
                     const newQ = prompt("Upravte otázku:", item.question);
                     const newA = prompt("Upravte odpověď:", item.answer);
@@ -60,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 const deleteBtn = document.createElement("button");
                 deleteBtn.textContent = "❌ Smazat";
-                deleteBtn.classList.add("add-btn");
+                deleteBtn.classList.add("delete-btn");
                 deleteBtn.addEventListener("click", function () {
                     if (confirm("Opravdu chcete smazat tuto otázku?")) {
                         questions.splice(index, 1);
