@@ -1,74 +1,91 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #fde9c9;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    background-color: #fde7c3;
+    text-align: center;
     margin: 0;
+    padding: 0;
 }
 
 .faq-header {
-    background-color: #007b7a;
+    background-color: #007b7b;
     color: white;
+    padding: 20px;
     font-size: 24px;
-    padding: 15px 30px;
-    border-radius: 10px;
+    font-weight: bold;
     text-align: center;
-    margin-bottom: 20px;
+    border-radius: 10px;
+    width: 50%;
+    margin: 20px auto;
 }
 
 .faq-item {
     background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 5px;
+    margin: 10px auto;
     width: 50%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
+    text-align: left;
 }
 
 .faq-question {
     font-weight: bold;
-    color: #007b7a;
+    color: #007b7b;
+    cursor: pointer;
+    font-size: 18px;
 }
 
 .faq-answer {
     display: none;
-    margin-top: 5px;
-    color: #000;
+    color: #333;
+    font-size: 16px;
+    margin-top: 10px;
 }
 
 .faq-answer.visible {
     display: block;
 }
 
-.login-btn, .logout-btn, .add-btn, .edit-btn, .delete-btn {
-    background-color: #ff9800;
-    color: white;
-    padding: 10px;
+button {
+    padding: 10px 15px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px;
+    font-size: 16px;
+    margin: 5px;
+}
+
+.login-btn {
+    background-color: #ff9800;
+    color: white;
+}
+
+.logout-btn {
+    background-color: #ff5733;
+    color: white;
+}
+
+.add-btn {
+    background-color: #4caf50;
+    color: white;
+}
+
+.edit-btn {
+    background-color: #2196F3;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #f44336;
+    color: white;
 }
 
 .admin-section {
-    display: none;
-    background-color: #007b7a;
+    background: #007b7b;
     padding: 20px;
     border-radius: 10px;
     color: white;
-    text-align: center;
     width: 50%;
-    margin-top: 20px;
-}
-
-input {
-    padding: 10px;
-    margin: 5px;
-    width: 80%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    margin: 20px auto;
+    display: none;
 }
