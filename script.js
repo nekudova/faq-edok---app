@@ -1,87 +1,55 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const faqList = document.getElementById("faq-list");
-    const adminPanel = document.getElementById("admin-panel");
-    const adminLogin = document.getElementById("admin-login");
-    const submitPassword = document.getElementById("submit-password");
-    const passwordInput = document.getElementById("password");
-    const addQuestionBtn = document.getElementById("add-question");
-    const newQuestionInput = document.getElementById("new-question");
-    const newAnswerInput = document.getElementById("new-answer");
-    const showAdminBtn = document.getElementById("show-admin");
-    const logoutBtn = document.getElementById("logout");
+    let questions = JSON.parse(localStorage.getItem("faq")) || [];
 
-    const adminPassword = "Budelip25";
-    let faqData = [];
+    function renderQuestions() {
+        const faqContainer = document.getElementById("faq-container");
+        faqContainer.innerHTML = "";
+        questions.forEach((q, index) => {
+            const faqItem = document.createElement("div");
+            faqItem.classList.add("faq-item");
 
-    // Funkce pro vykreslení otázek
-    function renderFAQs() {
-        faqList.innerHTML = "";
-        faqData.forEach((faq, index) => {
-            const item = document.createElement("div");
-            item.classList.add("faq-item");
-            item.innerHTML = `
-                <div class="faq-question">${faq.question}</div>
-                <div class="faq-answer">${faq.answer}</div>
-            `;
-            faqList.appendChild(item);
-
-            item.querySelector(".faq-question").addEventListener("click", function () {
-                const answer = this.nextElementSibling;
-                answer.style.display = (answer.style.display === "block") ? "none" : "block";
+            const questionElement = document.createElement("div");
+            questionElement.classList.add("faq-question");
+            questionElement.textContent = q.question;
+            questionElement.addEventListener("click", () => {
+                answerElement.style.display = answerElement.style.display === "none" ? "block" : "none";
             });
+
+            const answerElement = document.createElement("div");
+            answerElement.classList.add("faq-answer");
+            answerElement.textContent = q.answer;
+            answerElement.style.display = "none";
+
+            const editButton = document.createElement("button");
+            editButton.textContent = "Upravit";
+            editButton.classList.add("edit-btn");
+            editButton.addEventListener("click", () => editQuestion(index));
+
+            faqItem.appendChild(questionElement);
+            faqItem.appendChild(answerElement);
+            faqItem.appendChild(editButton);
+            faqContainer.appendChild(faqItem);
         });
     }
 
-    // Funkce pro uložení do localStorage
-    function saveFAQs() {
-        localStorage.setItem("faqData", JSON.stringify(faqData));
-    }
+    function editQuestion(index) {
+        const newQuestion = prompt("Upravte otázku:", questions[index].question);
+        const newAnswer = prompt("Upravte odpověď:", questions[index].answer);
 
-    // Funkce pro načtení otázek
-    function loadFAQs() {
-        const savedData = localStorage.getItem("faqData");
-        if (savedData) {
-            faqData = JSON.parse(savedData);
-            renderFAQs();
+        if (newQuestion && newAnswer) {
+            questions[index] = { question: newQuestion, answer: newAnswer };
+            localStorage.setItem("faq", JSON.stringify(questions));
+            renderQuestions();
         }
     }
 
-    // Kliknutí na tlačítko "Přihlásit"
-    showAdminBtn.addEventListener("click", function () {
-        adminLogin.classList.remove("hidden");
-        showAdminBtn.classList.add("hidden");
-    });
+    document.getElementById("add-question-btn").addEventListener("click", function () {
+        const questionInput = document.getElementById("question-input").value.trim();
+        const answerInput = document.getElementById("answer-input").value.trim();
 
-    // Ověření hesla a zobrazení administrace
-    submitPassword.addEventListener("click", function () {
-        if (passwordInput.value === adminPassword) {
-            adminLogin.classList.add("hidden");
-            adminPanel.classList.remove("hidden");
-            passwordInput.value = "";
-        } else {
-            alert("Špatné heslo!");
-        }
-    });
-
-    // Tlačítko odhlášení
-    logoutBtn.addEventListener("click", function () {
-        adminPanel.classList.add("hidden");
-        showAdminBtn.classList.remove("hidden");
-    });
-
-    // Přidání nové otázky
-    addQuestionBtn.addEventListener("click", function () {
-        const question = newQuestionInput.value.trim();
-        const answer = newAnswerInput.value.trim();
-        if (question && answer) {
-            faqData.push({ question, answer });
-            saveFAQs();
-            renderFAQs();
-            newQuestionInput.value = "";
-            newAnswerInput.value = "";
-        }
-    });
-
-    // Načíst otázky při startu
-    loadFAQs();
-});
+        if (questionInput && answerInput) {
+            questions.push({ question: questionInput, answer: answerInput });
+            localStorage.setItem("faq", JSON.stringify(questions));
+            renderQuestions();
+            document.getElementById("question-input").value = "";
+            document.getElementById("answer-i
