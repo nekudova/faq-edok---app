@@ -59,3 +59,27 @@ input[type="text"] {
     border-radius: 5px;
     font-size: 16px;
 }
+/* Reset stylů pro různé prohlížeče */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Zarovnání všech textů na levý okraj */
+.faq-container {
+    text-align: left;
+    width: 50%;
+    margin: auto;
+}
+
+/* Oprava tlačítka Přihlásit */
+.login-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    margin: 20px auto;
+    padding: 10px;
+}
