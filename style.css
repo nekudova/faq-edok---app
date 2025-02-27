@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #ffe4c4; /* Světle oranžový podklad */
+    background-color: #ffe4c4;
     text-align: center;
     padding: 20px;
 }
@@ -34,12 +34,15 @@ body {
     font-weight: bold;
     color: #008080;
     cursor: pointer;
+    padding: 5px;
 }
 
 .faq-answer {
     display: none;
     margin-top: 5px;
-    color: black;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-left: 4px solid #008080;
 }
 
 .visible {
