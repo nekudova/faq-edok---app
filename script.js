@@ -95,4 +95,15 @@ document.addEventListener("DOMContentLoaded", function () {
         const questionText = newQuestionInput.value.trim();
         const answerText = newAnswerInput.value.trim();
         if (questionText && answerText) {
-            questions.push({ question: questionText, answer
+            questions.push({ question: questionText, answer: answerText });
+            saveQuestions();
+            renderQuestions();
+            newQuestionInput.value = "";
+            newAnswerInput.value = "";
+        } else {
+            alert("Vyplňte otázku i odpověď.");
+        }
+    });
+
+    renderQuestions();
+});
