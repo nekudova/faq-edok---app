@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     const GITHUB_USERNAME = "nekudova"; // Tvé GitHub uživatelské jméno
     const GITHUB_REPO = "faq-edok---app"; // Název tvého repozitáře
     const GITHUB_FILE_PATH = "questions.json"; // Soubor s otázkami
-    const GITHUB_TOKEN = "ghp_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"; // Sem vlož svůj token!
+    const GITHUB_TOKEN = "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"; // Sem vlož svůj token!
 
     let questions = [];
 
