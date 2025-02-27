@@ -21,9 +21,15 @@ document.addEventListener("DOMContentLoaded", function () {
         const answer = document.createElement("div");
         answer.classList.add("faq-answer");
         answer.innerText = item.answer;
+        answer.style.display = "none"; // Výchozí stav: skryté
 
+        // Přidání event listeneru na kliknutí
         question.addEventListener("click", function () {
-            answer.style.display = answer.style.display === "block" ? "none" : "block";
+            if (answer.style.display === "none") {
+                answer.style.display = "block"; // Zobrazit odpověď
+            } else {
+                answer.style.display = "none"; // Skrýt odpověď
+            }
         });
 
         faqItem.appendChild(question);
