@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const newAnswerInput = document.getElementById("new-answer");
 
     let isAdmin = false;
-    const adminPassword = "Budelip25"; // Heslo pro přístup do administrace
+    const adminPassword = "Budelip25"; 
     let questions = JSON.parse(localStorage.getItem("questions")) || [];
 
     function renderQuestions() {
@@ -72,24 +72,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
     logoutBtn.addEventListener("click", function () {
         isAdmin = false;
-        adminSection.style.display = "none";
-        loginBtn.style.display = "block";
-        renderQuestions();
-    });
-
-    addQuestionBtn.addEventListener("click", function () {
-        const questionText = newQuestionInput.value.trim();
-        const answerText = newAnswerInput.value.trim();
-        if (questionText && answerText) {
-            questions.push({ question: questionText, answer: answerText });
-            saveQuestions();
-            renderQuestions();
-            newQuestionInput.value = "";
-            newAnswerInput.value = "";
-        } else {
-            alert("Vyplňte otázku i odpověď.");
-        }
-    });
-
-    renderQuestions();
-});
+        adminSection.style.displa
