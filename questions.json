@@ -8,11 +8,27 @@
         "answer": "Vždy uveďte konkrétní příklad."
     },
     {
-        "question": "Nová otázka?",
-        "answer": "Toto je nová odpověď."
+        "question": "Jak mohu přidat novou otázku?",
+        "answer": "Jednoduše přidejte nový objekt do JSON souboru."
     },
     {
-        "question": "Nová otázka?",
-        "answer": "Toto je nová odpověď."
+        "question": "Mohu upravit existující odpověď?",
+        "answer": "Ano, stačí změnit text odpovědi v JSON souboru."
+    },
+    {
+        "question": "Jak mohu smazat otázku?",
+        "answer": "Odstraňte odpovídající objekt v JSON souboru."
+    },
+    {
+        "question": "Lze měnit pořadí otázek?",
+        "answer": "Ano, můžete je přesunout libovolně v rámci souboru."
+    },
+    {
+        "question": "Podporuje aplikace více jazyků?",
+        "answer": "Ano, stačí přidat překlady k otázkám a odpovědím."
+    },
+    {
+        "question": "Jak mohu kontaktovat podporu?",
+        "answer": "Napište nám na email support@example.com."
     }
 ]
