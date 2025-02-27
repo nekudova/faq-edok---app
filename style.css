@@ -9,8 +9,8 @@ body {
 }
 
 .container {
-    width: 80%;
-    max-width: 800px;
+    width: 50%;  /* 🔹 Omezení šířky na polovinu stránky */
+    max-width: 600px;
     background: white;
     padding: 20px;
     border-radius: 10px;
@@ -21,7 +21,7 @@ body {
 h1 {
     text-align: center;
     font-size: 24px;
-    color: white;  /* 🔹 Změna na bílou barvu */
+    color: white;  /* 🔹 Bílá barva nadpisu */
 }
 
 .faq-item {
@@ -49,8 +49,8 @@ h1 {
 .admin-section {
     margin-top: 30px;
     padding: 20px;
-    width: 80%;
-    max-width: 800px;
+    width: 50%;  /* 🔹 Admin sekce má také maximálně polovinu stránky */
+    max-width: 600px;
     background: #004D4D;
     border-radius: 10px;
     color: white;
