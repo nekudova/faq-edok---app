@@ -1,62 +1,92 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const faqList = document.getElementById("faq-list");
+    const faqContainer = document.getElementById("faq-container");
     const loginBtn = document.getElementById("login-btn");
-    const loginForm = document.getElementById("login-form");
-    const submitPassword = document.getElementById("submit-password");
-    const passwordInput = document.getElementById("password");
-    const adminPanel = document.getElementById("admin-panel");
     const logoutBtn = document.getElementById("logout-btn");
-    const addQuestionBtn = document.getElementById("add-question");
-    const newQuestion = document.getElementById("new-question");
-    const newAnswer = document.getElementById("new-answer");
-    const correctPassword = "Budelip25";
+    const adminSection = document.getElementById("admin-section");
+    const addQuestionBtn = document.getElementById("add-question-btn");
+    const newQuestionInput = document.getElementById("new-question");
+    const newAnswerInput = document.getElementById("new-answer");
 
-    let questions = [
-        { question: "PS sepsaná dle požadavků a potřeb klientky.", answer: "Detailní odpověď na otázku." },
-        { question: "Vybraný produkt, nastavení a zvolená pojišťovna plně vyhovuje požadavkům klienta.", answer: "Více informací o tomto tématu." }
+    let isAdmin = false;
+    const adminPassword = "Budelip25";
+
+    const questions = [
+        { question: "Co je tato aplikace?", answer: "Jednoduchá webová aplikace pro zobrazování často kladených otázek." },
+        { question: "Jak správně formulovat radu?", answer: "Vždy specifikujte, jak doporučený produkt odpovídá potřebám klienta." }
     ];
 
     function renderQuestions() {
-        faqList.innerHTML = "";
+        faqContainer.innerHTML = "";
         questions.forEach((item, index) => {
-            const faqItem = document.createElement("div");
-            faqItem.classList.add("faq-item");
-            faqItem.innerHTML = `<div class='faq-question'>${item.question}</div>
-                                <div class='faq-answer'>${item.answer}</div>`;
-            faqItem.addEventListener("click", function () {
-                const answer = this.querySelector(".faq-answer");
-                answer.style.display = answer.style.display === "block" ? "none" : "block";
+            const questionElement = document.createElement("div");
+            questionElement.classList.add("faq-item");
+            questionElement.innerHTML = `<div class="faq-question">${item.question}</div><div class="faq-answer">${item.answer}</div>`;
+            
+            questionElement.querySelector(".faq-question").addEventListener("click", function () {
+                this.nextElementSibling.classList.toggle("visible");
             });
-            faqList.appendChild(faqItem);
+
+            if (isAdmin) {
+                const editBtn = document.createElement("button");
+                editBtn.textContent = "✏ Upravit";
+                editBtn.classList.add("edit-btn");
+                editBtn.onclick = function () {
+                    const newQ = prompt("Upravte otázku:", item.question);
+                    const newA = prompt("Upravte odpověď:", item.answer);
+                    if (newQ && newA) {
+                        questions[index] = { question: newQ, answer: newA };
+                        renderQuestions();
+                    }
+                };
+
+                const deleteBtn = document.createElement("button");
+                deleteBtn.textContent = "❌ Smazat";
+                deleteBtn.classList.add("delete-btn");
+                deleteBtn.onclick = function () {
+                    questions.splice(index, 1);
+                    renderQuestions();
+                };
+
+                questionElement.appendChild(editBtn);
+                questionElement.appendChild(deleteBtn);
+            }
+
+            faqContainer.appendChild(questionElement);
         });
     }
 
     loginBtn.addEventListener("click", function () {
-        loginForm.classList.toggle("hidden");
-    });
-
-    submitPassword.addEventListener("click", function () {
-        if (passwordInput.value === correctPassword) {
-            adminPanel.classList.remove("hidden");
-            loginForm.classList.add("hidden");
+        const password = prompt("Zadejte heslo:");
+        if (password === adminPassword) {
+            isAdmin = true;
+            adminSection.style.display = "block";
+            loginBtn.style.display = "none";
+            renderQuestions();
         } else {
-            alert("Nesprávné heslo!");
+            alert("Špatné heslo!");
         }
     });
 
     logoutBtn.addEventListener("click", function () {
-        adminPanel.classList.add("hidden");
-        passwordInput.value = "";
+        isAdmin = false;
+        adminSection.style.display = "none";
+        loginBtn.style.display = "block";
+        renderQuestions();
     });
 
     addQuestionBtn.addEventListener("click", function () {
-        if (newQuestion.value.trim() && newAnswer.value.trim()) {
-            questions.push({ question: newQuestion.value, answer: newAnswer.value });
-            newQuestion.value = "";
-            newAnswer.value = "";
+        const newQ = newQuestionInput.value.trim();
+        const newA = newAnswerInput.value.trim();
+        if (newQ && newA) {
+            questions.push({ question: newQ, answer: newA });
+            newQuestionInput.value = "";
+            newAnswerInput.value = "";
             renderQuestions();
+        } else {
+            alert("Zadejte platnou otázku a odpověď!");
         }
     });
 
     renderQuestions();
 });
+
