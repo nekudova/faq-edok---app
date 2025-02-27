@@ -10,13 +10,15 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        fetch("https://script.google.com/macros/s/AKfycbwE3c_jUB9EznJVSC9ZQGgVxcFoe9vZMalivM0PG2wTpf2LzyqCLPbFr-h46iUqlcuW/exec", {  
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ question: question })
-        })
+       fetch("https://script.google.com/macros/s/AKfycbwE3c_jUB9EznJVSC9ZQGgVxcFoe9vZMalivM0PG2wTpf2LzyqCLPbFr-h46iUqlcuW/exec", {  
+    method: "POST",
+    mode: "cors", // Povolit CORS
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ question: question })
+})
+
         .then(response => response.json())
         .then(data => {
             if (data.status === "success") {
