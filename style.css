@@ -9,7 +9,7 @@ body {
 }
 
 .container {
-    width: 50%;  /* 🔹 Omezení šířky na polovinu stránky */
+    width: 50%;
     max-width: 600px;
     background: white;
     padding: 20px;
@@ -31,25 +31,31 @@ h1 {
     margin: 10px 0;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     cursor: pointer;
+    word-wrap: break-word;
+    white-space: normal;
 }
 
 .faq-question {
     font-weight: bold;
-    color: #FF9800;
+    color: #004D4D; /* 🔹 Petrolejová barva */
     margin-bottom: 5px;
+    word-wrap: break-word;
+    white-space: normal;
 }
 
 .faq-answer {
     display: none;
-    color: black; /* 🔹 Černá barva odpovědi, bez podbarvení */
+    color: black;
     font-size: 14px;
     line-height: 1.5;
+    word-wrap: break-word;
+    white-space: normal;
 }
 
 .admin-section {
     margin-top: 30px;
     padding: 20px;
-    width: 50%;  /* 🔹 Admin sekce má také maximálně polovinu stránky */
+    width: 50%;
     max-width: 600px;
     background: #004D4D;
     border-radius: 10px;
@@ -66,6 +72,7 @@ input, button {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    width: 100%;
 }
 
 button {
