@@ -1,59 +1,51 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #FCE5CD;
+    background-color: #fde9c9;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     height: 100vh;
     margin: 0;
 }
 
-.container {
-    width: 80%;
-    max-width: 800px;
-    text-align: center;
-}
-
 .faq-header {
-    background-color: #007575;
+    background-color: #007b7a;
     color: white;
-    padding: 15px;
     font-size: 24px;
+    padding: 15px 30px;
     border-radius: 10px;
+    text-align: center;
     margin-bottom: 20px;
-}
-
-.faq-list {
-    width: 100%;
 }
 
 .faq-item {
     background: white;
     padding: 15px;
-    border-radius: 8px;
     margin-bottom: 10px;
+    border-radius: 5px;
+    width: 50%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     cursor: pointer;
 }
 
-.faq-item .faq-question {
+.faq-question {
     font-weight: bold;
-    color: #007575;
+    color: #007b7a;
 }
 
-.faq-item .faq-answer {
+.faq-answer {
     display: none;
-    margin-top: 10px;
-    color: black;
+    margin-top: 5px;
+    color: #000;
 }
 
-.hidden {
-    display: none;
+.faq-answer.visible {
+    display: block;
 }
 
-.login-btn, #submit-password, .logout-btn, #add-question {
-    background-color: #FF9800;
+.login-btn, .logout-btn, .add-btn, .edit-btn, .delete-btn {
+    background-color: #ff9800;
     color: white;
     padding: 10px;
     border: none;
@@ -62,15 +54,21 @@ body {
     margin-top: 10px;
 }
 
-.login-form {
-    margin-top: 15px;
-}
-
-#admin-panel {
-    background: #007575;
+.admin-section {
+    display: none;
+    background-color: #007b7a;
     padding: 20px;
     border-radius: 10px;
     color: white;
-    margin-top: 20px;
     text-align: center;
+    width: 50%;
+    margin-top: 20px;
+}
+
+input {
+    padding: 10px;
+    margin: 5px;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
