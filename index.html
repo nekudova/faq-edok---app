@@ -7,32 +7,23 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="container">
+        <div class="form-container">
+            <h2>Položte svou otázku</h2>
+            <form id="faqForm">
+                <input type="text" id="question" placeholder="Napište otázku..." required>
+                <button type="submit">Odeslat</button>
+            </form>
+            <p id="status"></p>
+        </div>
 
-<div class="container">
-    <div class="form-container">
-        <h2>Položte svou otázku</h2>
-        <form id="faqForm">
-            <input type="text" id="question" placeholder="Napište otázku..." required>
-            <button type="submit">Odeslat</button>
-        </form>
-        <p id="status"></p>
+        <div class="faq-container">
+            <h1>Často kladené otázky</h1>
+            <div class="faq-item"><div class="faq-question">Co je tato aplikace?</div><div class="faq-answer">Jednoduchá webová aplikace pro zobrazování často kladených otázek.</div></div>
+            <div class="faq-item"><div class="faq-question">Jak správně formulovat radu?</div><div class="faq-answer">Vždy specifikujte, jak doporučený produkt odpovídá potřebám klienta.</div></div>
+        </div>
     </div>
 
-    <div class="faq-container">
-        <h1>Často kladené otázky</h1>
-
-        <div class="faq-item"><div class="faq-question">Co je tato aplikace?</div><div class="faq-answer">Jednoduchá webová aplikace pro zobrazování často kladených otázek.</div></div>
-        <div class="faq-item"><div class="faq-question">Jak správně formulovat radu?</div><div class="faq-answer">Vždy specifikujte, jak doporučený produkt odpovídá časovému horizontu klienta, jeho rizikové toleranci a finančním cílům.</div></div>
-        <div class="faq-item"><div class="faq-question">Co je rizikové životní pojištění?</div><div class="faq-answer">Klient požadoval finanční ochranu své rodiny v případě úmrtí. Na základě analýzy jeho příjmů byla doporučena pojistná částka 2 000 000 Kč.</div></div>
-        <div class="faq-item"><div class="faq-question">Jaký je správný postup při sjednání pojištění?</div><div class="faq-answer">Klient byl seznámen s variantami pojistného krytí, podmínkami a výlukami, na základě čehož se rozhodl pro sjednaný produkt.</div></div>
-        <div class="faq-item"><div class="faq-question">Vybraný produkt, nastavení a zvolená pojišťovna plně vyhovuje požadavkům klienta.</div><div class="faq-answer">Produkt, který byl klientovi doporučen a sjednán, odpovídá jeho požadavkům a cílům.</div></div>
-        <div class="faq-item"><div class="faq-question">PS sepsaná dle požadavků a potřeb klientky.</div><div class="faq-answer">Pojistná smlouva byla sestavena na základě požadavků klientky.</div></div>  
-        <div class="faq-item"><div class="faq-question">Doporučuji tento produkt, protože je výhodný.</div><div class="faq-answer">Doporučený produkt byl vybrán na základě porovnání variant a nejlépe odpovídá požadavkům klienta.</div></div>
-        <div class="faq-item"><div class="faq-question">Tento produkt vám pomůže spořit a zároveň vás pojistit.</div><div class="faq-answer">Klient požaduje produkt, který mu umožní dlouhodobé spoření na důchod a současně poskytne finanční ochranu pro jeho rodinu.</div></div>
-        <div class="faq-item"><div class="faq-question">Klient požaduje základní havarijní pojištění, včetně připojištění skel.</div><div class="faq-answer">Na základě požadavků klienta doporučuji pojištění s krytím ve výši [uveď konkrétní limit].</div></div>
-    </div>
-</div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
