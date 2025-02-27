@@ -1,109 +1,107 @@
 document.addEventListener("DOMContentLoaded", function () {
     const faqContainer = document.getElementById("faq-container");
-    const loginToggle = document.getElementById("login-toggle");
+    const adminSection = document.getElementById("admin-section");
     const loginBtn = document.getElementById("login-btn");
     const logoutBtn = document.getElementById("logout-btn");
-    const adminSection = document.getElementById("admin-section");
-    const passwordInput = document.getElementById("password");
     const addQuestionBtn = document.getElementById("add-question-btn");
     const newQuestionInput = document.getElementById("new-question");
     const newAnswerInput = document.getElementById("new-answer");
 
-    let isAdmin = false;
-    const adminPassword = "Budelip25";
-    let questions = JSON.parse(localStorage.getItem("questions")) || [];
+    const ADMIN_PASSWORD = "Budelip25";
 
-    function renderQuestions() {
-        faqContainer.innerHTML = "";
-        questions.forEach((item, index) => {
-            const questionDiv = document.createElement("div");
-            questionDiv.classList.add("faq-item");
-
-            questionDiv.innerHTML = `
-                <div class="faq-question">${item.question}</div>
-                <div class="faq-answer">${item.answer}</div>
-                ${isAdmin ? `
-                <button class="edit-btn" data-index="${index}">✏️ Upravit</button>
-                <button class="delete-btn" data-index="${index}">❌ Smazat</button>
-                ` : ""}
-            `;
-
-            // ✅ Opraveno: Kliknutí na otázku nyní správně zobrazí odpověď
-            questionDiv.querySelector(".faq-question").addEventListener("click", function () {
-                let answer = this.nextElementSibling;
-                answer.classList.toggle("visible");
-            });
-
-            if (isAdmin) {
-                questionDiv.querySelector(".edit-btn").addEventListener("click", function () {
-                    let newQuestion = prompt("Upravte otázku:", item.question);
-                    let newAnswer = prompt("Upravte odpověď:", item.answer);
-                    if (newQuestion && newAnswer) {
-                        questions[index] = { question: newQuestion, answer: newAnswer };
-                        saveQuestions();
-                        renderQuestions();
-                    }
-                });
-
-                questionDiv.querySelector(".delete-btn").addEventListener("click", function () {
-                    if (confirm("Opravdu chcete smazat tuto otázku?")) {
-                        questions.splice(index, 1);
-                        saveQuestions();
-                        renderQuestions();
-                    }
-                });
-            }
-
-            faqContainer.appendChild(questionDiv);
-        });
-    }
+    let questions = JSON.parse(localStorage.getItem("questions")) || [
+        { question: "Co je tato aplikace?", answer: "Jednoduchá FAQ aplikace." },
+        { question: "Jak správně formulovat radu?", answer: "Vždy uveďte konkrétní příklad." }
+    ];
 
     function saveQuestions() {
         localStorage.setItem("questions", JSON.stringify(questions));
     }
 
-    loginToggle.addEventListener("click", function () {
-        adminSection.style.display = "block";
-        loginToggle.style.display = "none";
-    });
+    function renderFAQ() {
+        faqContainer.innerHTML = "";
+        questions.forEach((item, index) => {
+            const faqItem = document.createElement("div");
+            faqItem.classList.add("faq-item");
+
+            const questionElement = document.createElement("div");
+            questionElement.classList.add("faq-question");
+            questionElement.textContent = item.question;
+            questionElement.addEventListener("click", function () {
+                answerElement.style.display = answerElement.style.display === "none" ? "block" : "none";
+            });
+
+            const answerElement = document.createElement("div");
+            answerElement.classList.add("faq-answer");
+            answerElement.textContent = item.answer;
+            answerElement.style.display = "none";
+
+            faqItem.appendChild(questionElement);
+            faqItem.appendChild(answerElement);
+
+            if (adminSection.classList.contains("hidden") === false) {
+                const editBtn = document.createElement("button");
+                editBtn.textContent = "✏️ Upravit";
+                editBtn.classList.add("add-btn");
+                editBtn.addEventListener("click", function () {
+                    const newQ = prompt("Upravte otázku:", item.question);
+                    const newA = prompt("Upravte odpověď:", item.answer);
+                    if (newQ && newA) {
+                        questions[index] = { question: newQ, answer: newA };
+                        saveQuestions();
+                        renderFAQ();
+                    }
+                });
+
+                const deleteBtn = document.createElement("button");
+                deleteBtn.textContent = "❌ Smazat";
+                deleteBtn.classList.add("add-btn");
+                deleteBtn.addEventListener("click", function () {
+                    if (confirm("Opravdu chcete smazat tuto otázku?")) {
+                        questions.splice(index, 1);
+                        saveQuestions();
+                        renderFAQ();
+                    }
+                });
+
+                faqItem.appendChild(editBtn);
+                faqItem.appendChild(deleteBtn);
+            }
+
+            faqContainer.appendChild(faqItem);
+        });
+    }
 
     loginBtn.addEventListener("click", function () {
-        const password = passwordInput.value;
-        if (password === adminPassword) {
-            isAdmin = true;
-            adminSection.style.display = "block";
-            logoutBtn.classList.remove("hidden");
+        const password = prompt("Zadejte heslo pro administraci:");
+        if (password === ADMIN_PASSWORD) {
+            adminSection.classList.remove("hidden");
             loginBtn.classList.add("hidden");
-            passwordInput.classList.add("hidden");
-            renderQuestions();
+            renderFAQ();
         } else {
-            alert("Špatné heslo!");
+            alert("Nesprávné heslo!");
         }
     });
 
     logoutBtn.addEventListener("click", function () {
-        isAdmin = false;
-        adminSection.style.display = "none";
-        loginToggle.style.display = "block";
-        logoutBtn.classList.add("hidden");
+        adminSection.classList.add("hidden");
         loginBtn.classList.remove("hidden");
-        passwordInput.classList.remove("hidden");
-        renderQuestions();
+        renderFAQ();
     });
 
     addQuestionBtn.addEventListener("click", function () {
-        const questionText = newQuestionInput.value.trim();
-        const answerText = newAnswerInput.value.trim();
-        if (questionText && answerText) {
-            questions.push({ question: questionText, answer: answerText });
+        const newQ = newQuestionInput.value.trim();
+        const newA = newAnswerInput.value.trim();
+        if (newQ && newA) {
+            questions.push({ question: newQ, answer: newA });
             saveQuestions();
-            renderQuestions();
+            renderFAQ();
             newQuestionInput.value = "";
             newAnswerInput.value = "";
         } else {
-            alert("Vyplňte otázku i odpověď.");
+            alert("Vyplňte obě pole!");
         }
     });
 
-    renderQuestions();
+    renderFAQ();
 });
