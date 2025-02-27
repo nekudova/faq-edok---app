@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
         var question = document.getElementById("question").value;
         var status = document.getElementById("status");
 
-        fetch("PASTE_CORRECT_SCRIPT_URL_HERE", {  // OPRAVENÁ URL
+        fetch("https://script.google.com/macros/s/AKfycbzYf3HS1J5QkBqQuYxhjARRIN6MYcFCDCLCgEH-IEtBCJwfiXfsUeMKDRbbqeDObiLy/exec", { // OPRAVENÁ URL
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -37,4 +37,3 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
-
