@@ -8,27 +8,25 @@
 </head>
 <body>
 
-    <!-- Nadpis -->
     <div class="faq-header">Často kladené otázky</div>
-
-    <!-- Kontejner pro otázky -->
+    
     <div id="faq-container"></div>
 
-    <!-- Přihlašovací tlačítko -->
-    <button id="login-btn" class="login-btn">🔑 Přihlásit</button>
+    <button id="login-toggle" class="login-btn">🔑 Přihlásit</button>
 
-    <!-- Sekce administrace (skrytá) -->
-    <div id="admin-section" class="admin-section">
+    <div id="admin-section" class="hidden">
         <h2>Administrace</h2>
-        <button id="logout-btn" class="logout-btn">🚪 Odhlásit</button>
+        <label for="password">Heslo:</label>
+        <input type="password" id="password">
+        <button id="login-btn">Přihlásit</button>
+        <button id="logout-btn" class="hidden">🚪 Odhlásit</button>
 
         <h3>Přidat novou otázku</h3>
         <input type="text" id="new-question" placeholder="Zadejte otázku...">
         <input type="text" id="new-answer" placeholder="Zadejte odpověď...">
-        <button id="add-question-btn" class="add-btn">➕ Přidat</button>
+        <button id="add-question-btn">➕ Přidat</button>
     </div>
 
     <script src="script.js"></script>
-
 </body>
 </html>
