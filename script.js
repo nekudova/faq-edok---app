@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
         var question = document.getElementById("question").value;
         var status = document.getElementById("status");
 
-        fetch("https://script.google.com/macros/s/AKfycbzYf3HS1J5QkBqQuYxhjARRIN6MYcFCDCLCgEH-IEtBCJwfiXfsUeMKDRbbqeDObiLy/exec", { 
+        fetch("https://script.google.com/macros/s/AKfycbzYf3HS1J5QkBqQuYxhjARRIN6MYcFCDCLCgEH-IEtBCJwfiXfsUeMKDRbbqeDObiLy/exec", { // Správná URL Apps Scriptu
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -37,3 +37,4 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
