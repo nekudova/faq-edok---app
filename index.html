@@ -1,40 +1,20 @@
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Často kladené otázky</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <!-- Sekce s otázkami -->
-        <div class="faq-container">
-            <h1>Často kladené otázky</h1>
-            <div id="faq-list"></div>
-        </div>
-
-        <!-- Admin Panel -->
-        <div class="admin-container" id="adminPanel" style="display: none;">
-            <h2>Administrace</h2>
-            <input type="text" id="questionInput" placeholder="Zadejte otázku...">
-            <input type="text" id="answerInput" placeholder="Zadejte odpověď...">
-            <button onclick="addFAQ()">Přidat</button>
+<h2>Administrace</h2>
+        <input type="password" id="admin-password" placeholder="Zadejte heslo">
+        <button id="admin-submit">Přihlásit</button>
+        
+        <div id="admin-section" class="admin-hidden">
+            <h2>Přidat novou otázku</h2>
+            <input type="text" id="new-question" placeholder="Zadejte otázku...">
+            <input type="text" id="new-answer" placeholder="Zadejte odpověď...">
+            <button id="add-question">Přidat</button>
             
-            <h3>Správa otázek</h3>
-            <button onclick="exportFAQs()">📥 Export</button>
-            <input type="file" id="importFile">
-            <button onclick="importFAQs()">📤 Import</button>
-        </div>
-
-        <!-- Heslo pro správce -->
-        <div class="password-container" id="passwordContainer">
-            <h2>Přihlášení</h2>
-            <input type="password" id="passwordInput" placeholder="Zadejte heslo">
-            <button onclick="checkPassword()">Přihlásit</button>
+            <h2>Správa otázek</h2>
+            <button id="export">📥 Export</button>
+            <input type="file" id="import-file">
+            <button id="import">📤 Import</button>
         </div>
     </div>
-
+    
     <script src="script.js"></script>
 </body>
 </html>
