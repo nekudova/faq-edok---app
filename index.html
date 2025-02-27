@@ -7,26 +7,32 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Sekce s FAQ -->
     <div id="faq-container">
         <h1>Často kladené otázky</h1>
         <div id="faq-list"></div>
+        <button id="show-admin">🔑 Přihlásit</button>
     </div>
 
-    <div id="admin-login">
-        <button id="login-button">Přihlásit do administrace</button>
+    <!-- Sekce administrace (skrytá do přihlášení) -->
+    <div id="admin-login" class="hidden">
+        <h2>Administrace</h2>
+        <input type="password" id="password" placeholder="Zadejte heslo">
+        <button id="submit-password">Přihlásit</button>
     </div>
 
     <div id="admin-panel" class="hidden">
         <h2>Administrace</h2>
-        <label for="password">Heslo:</label>
-        <input type="password" id="password">
-        <button id="submit-password">Přihlásit</button>
-        <div id="admin-content" class="hidden">
+        <button id="logout">🚪 Odhlásit</button>
+
+        <div class="admin-section">
             <h3>Přidat novou otázku</h3>
             <input type="text" id="new-question" placeholder="Zadejte otázku...">
             <input type="text" id="new-answer" placeholder="Zadejte odpověď...">
             <button id="add-question">Přidat</button>
+        </div>
 
+        <div class="admin-section">
             <h3>Správa otázek</h3>
             <button id="export">📥 Export</button>
             <input type="file" id="import-file">
@@ -37,4 +43,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
