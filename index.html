@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Často kladené otázky (FAQ)</title>
+    <title>Často kladené otázky</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,8 +12,15 @@
             <h1>Často kladené otázky</h1>
             <div id="faq-list"></div>
         </div>
+        <div class="form-container">
+            <h2>Přidat novou otázku</h2>
+            <form id="add-question-form">
+                <input type="text" id="new-question" placeholder="Zadejte otázku..." required>
+                <input type="text" id="new-answer" placeholder="Zadejte odpověď..." required>
+                <button type="submit">Přidat</button>
+            </form>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
 </html>
-
