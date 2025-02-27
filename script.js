@@ -7,11 +7,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!question.trim()) {
             status.innerText = "Zadejte otázku!";
-            status.style.color = "red";
             return;
         }
 
-        fetch("https://script.google.com/macros/s/AKfycby2qltUirKQo6yqkryrRByyn03SeqCBV_6N1ZW9EfX-g65WFW9ASAXddeQ-2zDl11J2/exec", {  
+        fetch("https://script.google.com/macros/s/AKfycbxgCzcEUIbkTXip2DZWvFdPMzxb3sT8lIix41T1mYoM5oh2Uzp3_590NlbQDSPu5dJX/exec", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -22,18 +21,14 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(data => {
             if (data.status === "success") {
                 status.innerText = "Otázka byla úspěšně odeslána!";
-                status.style.color = "green";
                 document.getElementById("faqForm").reset();
             } else {
                 status.innerText = "Chyba: " + data.message;
-                status.style.color = "red";
             }
         })
         .catch(error => {
             status.innerText = "Chyba při odeslání!";
-            status.style.color = "red";
             console.error("Chyba:", error);
         });
     });
 });
-
