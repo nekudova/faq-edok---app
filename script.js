@@ -27,19 +27,20 @@ document.addEventListener("DOMContentLoaded", function () {
             const questionElement = document.createElement("div");
             questionElement.classList.add("faq-question");
             questionElement.textContent = item.question;
+            
+            const answerElement = document.createElement("div");
+            answerElement.classList.add("faq-answer");
+            answerElement.textContent = item.answer;
+            answerElement.style.display = "none";  // Odpovědi jsou skryté na začátku
+
             questionElement.addEventListener("click", function () {
                 answerElement.style.display = answerElement.style.display === "none" ? "block" : "none";
             });
 
-            const answerElement = document.createElement("div");
-            answerElement.classList.add("faq-answer");
-            answerElement.textContent = item.answer;
-            answerElement.style.display = "none";
-
             faqItem.appendChild(questionElement);
             faqItem.appendChild(answerElement);
 
-            if (adminSection.classList.contains("hidden") === false) {
+            if (!adminSection.classList.contains("hidden")) {
                 const editBtn = document.createElement("button");
                 editBtn.textContent = "✏️ Upravit";
                 editBtn.classList.add("add-btn");
