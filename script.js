@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    fetch("PASTE_GOOGLE_SCRIPT_URL_HERE")  // Sem vlož správný URL od Apps Script!
+    fetch("https://script.google.com/macros/s/AKfycbysEcAq0yCtYtzmEQXEDje81MU4lcBnpPOuozG-eda1Ezufi9CLOA6e11O25Cidu2qH/exec")  // Sem vlož správný URL od Apps Script!
     .then(response => response.json())
     .then(data => {
         const faqList = document.querySelector(".faq-container");
