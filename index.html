@@ -3,27 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Otázky a odpovědi k ZZJ</title>
+    <title>Často kladené otázky</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="faq-header">Otázky a odpovědi k ZZJ</div>
-    
+    <div class="faq-header">Často kladené otázky</div>
+
     <div id="faq-container"></div>
 
-    <button id="login-toggle" class="login-btn">🔑 Přihlásit</button>
+    <button id="login-btn" class="login-btn">🔑 Přihlásit</button>
 
-    <div id="admin-section" class="hidden">
+    <div id="admin-section" class="admin-section hidden">
         <h2>Administrace</h2>
-        <input type="password" id="password" placeholder="Zadejte heslo">
-        <button id="login-btn">Přihlásit</button>
-        <button id="logout-btn" class="hidden">🚪 Odhlásit</button>
+        <button id="logout-btn" class="logout-btn">📌 Odhlásit</button>
 
         <h3>Přidat novou otázku</h3>
         <input type="text" id="new-question" placeholder="Zadejte otázku...">
         <input type="text" id="new-answer" placeholder="Zadejte odpověď...">
-        <button id="add-question-btn">➕ Přidat</button>
+        <button id="add-question-btn" class="add-btn">➕ Přidat</button>
     </div>
 
     <script src="script.js"></script>
