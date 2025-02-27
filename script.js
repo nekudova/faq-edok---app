@@ -1,60 +1,72 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const faqList = document.getElementById("faq-list");
-    const addQuestionForm = document.getElementById("add-question-form");
-    const newQuestionInput = document.getElementById("new-question");
-    const newAnswerInput = document.getElementById("new-answer");
+    loadQuestions(); // Načti otázky při načtení stránky
+});
 
-    let faqData = [
-        { question: "Co je tato aplikace?", answer: "Jednoduchá webová aplikace pro zobrazování často kladených otázek." },
-        { question: "Jak správně formulovat radu?", answer: "Vždy specifikujte, jak doporučený produkt odpovídá potřebám klienta." }
-    ];
+// Načíst otázky z `localStorage`
+function loadQuestions() {
+    let faqList = document.getElementById("faq-list");
+    faqList.innerHTML = "";
 
-    function renderFAQ() {
-        faqList.innerHTML = "";
-        faqData.forEach((item, index) => {
-            const faqItem = document.createElement("div");
-            faqItem.classList.add("faq-item");
+    let questions = JSON.parse(localStorage.getItem("faq")) || [];
 
-            const question = document.createElement("div");
-            question.classList.add("faq-question");
-            question.innerText = item.question;
+    questions.forEach((item, index) => {
+        let faqItem = document.createElement("div");
+        faqItem.classList.add("faq-item");
 
-            const answer = document.createElement("div");
-            answer.classList.add("faq-answer");
-            answer.innerText = item.answer;
-            answer.style.display = "none";
+        let question = document.createElement("div");
+        question.classList.add("faq-question");
+        question.textContent = item.question;
+        question.onclick = function () {
+            let answer = this.nextElementSibling;
+            answer.style.display = (answer.style.display === "block") ? "none" : "block";
+        };
 
-            question.addEventListener("click", function () {
-                answer.style.display = answer.style.display === "none" ? "block" : "none";
-            });
+        let answer = document.createElement("div");
+        answer.classList.add("faq-answer");
+        answer.textContent = item.answer;
 
-            const deleteButton = document.createElement("button");
-            deleteButton.innerText = "❌";
-            deleteButton.classList.add("delete-button");
-            deleteButton.onclick = function () {
-                faqData.splice(index, 1);
-                renderFAQ();
-            };
+        // Správcovská možnost smazání otázky
+        let deleteButton = document.createElement("button");
+        deleteButton.textContent = "🗑️ Smazat";
+        deleteButton.onclick = function () {
+            deleteQuestion(index);
+        };
 
-            faqItem.appendChild(question);
-            faqItem.appendChild(answer);
-            faqItem.appendChild(deleteButton);
-            faqList.appendChild(faqItem);
-        });
+        faqItem.appendChild(question);
+        faqItem.appendChild(answer);
+        faqItem.appendChild(deleteButton);
+        faqList.appendChild(faqItem);
+    });
+}
+
+// Přidat otázku
+function addQuestion() {
+    let questionInput = document.getElementById("new-question");
+    let answerInput = document.getElementById("new-answer");
+
+    let question = questionInput.value.trim();
+    let answer = answerInput.value.trim();
+
+    if (!question || !answer) {
+        alert("Vyplňte otázku i odpověď!");
+        return;
     }
 
-    addQuestionForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-        const newQuestion = newQuestionInput.value.trim();
-        const newAnswer = newAnswerInput.value.trim();
+    let questions = JSON.parse(localStorage.getItem("faq")) || [];
+    questions.push({ question, answer });
 
-        if (newQuestion && newAnswer) {
-            faqData.push({ question: newQuestion, answer: newAnswer });
-            renderFAQ();
-            newQuestionInput.value = "";
-            newAnswerInput.value = "";
-        }
-    });
+    localStorage.setItem("faq", JSON.stringify(questions));
+    questionInput.value = "";
+    answerInput.value = "";
 
-    renderFAQ();
-});
+    loadQuestions();
+}
+
+// Smazání otázky
+function deleteQuestion(index) {
+    let questions = JSON.parse(localStorage.getItem("faq")) || [];
+    questions.splice(index, 1);
+
+    localStorage.setItem("faq", JSON.stringify(questions));
+    loadQuestions();
+}
