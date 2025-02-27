@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
         fetch(GITHUB_API_URL, {
             method: "PUT",
             headers: {
-                "Authorization": `token GITHUB_PERSONAL_ACCESS_TOKEN`,  // Sem vložte svůj GitHub token!
+                "Authorization": "token ghp_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`,  // Sem vložte svůj GitHub token!
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
