@@ -1,126 +1,62 @@
-document.addEventListener("DOMContentLoaded", function () {
-    loadQuestions(); // Načti otázky při načtení stránky
-});
-
-// Načíst otázky z `localStorage`
-function loadQuestions() {
-    let faqList = document.getElementById("faq-list");
-    faqList.innerHTML = "";
-
-    let questions = JSON.parse(localStorage.getItem("faq")) || [];
-
-    questions.forEach((item, index) => {
-        let faqItem = document.createElement("div");
-        faqItem.classList.add("faq-item");
-
-        let question = document.createElement("div");
-        question.classList.add("faq-question");
-        question.textContent = item.question;
-        question.onclick = function () {
-            let answer = this.nextElementSibling;
-            answer.style.display = (answer.style.display === "block") ? "none" : "block";
-        };
-
-        let answer = document.createElement("div");
-        answer.classList.add("faq-answer");
-        answer.textContent = item.answer;
-
-        // Tlačítko pro odstranění (pouze pro správce)
-        let deleteButton = document.createElement("button");
-        deleteButton.textContent = "❌";
-        deleteButton.classList.add("delete-btn");
-        deleteButton.onclick = function () {
-            deleteQuestion(index);
-        };
-
-        faqItem.appendChild(question);
-        faqItem.appendChild(answer);
-        
-        // Přidat mazací tlačítko jen pro správce
-        if (isAdmin()) {
-            faqItem.appendChild(deleteButton);
-        }
-
-        faqList.appendChild(faqItem);
-    });
+body {
+    font-family: Arial, sans-serif;
+    background-color: #008080; /* Petrolejová */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
-// Přidat otázku (pouze pro správce)
-function addQuestion() {
-    if (!isAdmin()) {
-        alert("Nemáte oprávnění přidávat otázky.");
-        return;
-    }
-
-    let questionInput = document.getElementById("new-question");
-    let answerInput = document.getElementById("new-answer");
-
-    let question = questionInput.value.trim();
-    let answer = answerInput.value.trim();
-
-    if (!question || !answer) {
-        alert("Vyplňte otázku i odpověď!");
-        return;
-    }
-
-    let questions = JSON.parse(localStorage.getItem("faq")) || [];
-    questions.push({ question, answer });
-
-    localStorage.setItem("faq", JSON.stringify(questions));
-    questionInput.value = "";
-    answerInput.value = "";
-
-    loadQuestions();
+.container {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
 }
 
-// Smazání otázky (pouze pro správce)
-function deleteQuestion(index) {
-    if (!isAdmin()) {
-        alert("Nemáte oprávnění mazat otázky.");
-        return;
-    }
-
-    let questions = JSON.parse(localStorage.getItem("faq")) || [];
-    questions.splice(index, 1);
-
-    localStorage.setItem("faq", JSON.stringify(questions));
-    loadQuestions();
-}
-
-// Ověření, zda je uživatel správce (zatím pevně nastaveno)
-function isAdmin() {
-    return true; // Pokud chceš řídit přístup podle hesla, můžeš zde přidat ověření
-}
-#admin-panel {
+.faq-container, .admin-container, .password-container {
     background: white;
-    padding: 15px;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 600px;
-    margin-top: 20px;
+    width: 400px;
+}
+
+h1, h2, h3 {
     text-align: center;
 }
 
-#admin-panel input {
-    width: 40%;
-    padding: 10px;
-    margin: 5px;
-    border: 1px solid #ccc;
+.faq-item {
+    background: white;
     border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 }
 
-#admin-panel button {
+.faq-question {
+    font-weight: bold;
+    color: #FF9800; /* Oranžová */
+    cursor: pointer;
+}
+
+.faq-answer {
+    display: none;
+    padding-top: 5px;
+    color: #008080; /* Petrolejová */
+}
+
+button {
     background-color: #FF9800;
     color: white;
     padding: 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
-    margin: 5px;
+    width: 100%;
+    margin-top: 10px;
 }
 
-#admin-panel button:hover {
+button:hover {
     background-color: #e68900;
 }
