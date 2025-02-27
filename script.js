@@ -15,9 +15,21 @@ document.getElementById("faqForm").addEventListener("submit", function (event) {
     var question = document.getElementById("question").value;
     var status = document.getElementById("status");
 
-fetch("https://script.google.com/macros/s/AKfycbObkReQTv0Jyds-e75NJCT3IPVTolxOQ7e0R2Gm558jerxZ5OQf7kQoGCHD0wYjQcy/exec?question=" + encodeURIComponent(question), {
-    method: "GET"
+fetch("https://script.google.com/macros/s/AKfycbObkReQTv0Jyds-e75NJCT3IPVTolxOQ7e0R2Gm558jerxZ5OQf7kQoGCHD0wYjQcy/exec", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ question: document.getElementById("question").value })
 })
+.then(response => response.text())
+.then(data => {
+    document.getElementById("status").innerText = "Otázka byla odeslána!";
+})
+.catch(error => {
+    document.getElementById("status").innerText = "Chyba při odesílání!";
+    console.error("Chyba:", error);
+});
 
    
     .then(response => response.text())
