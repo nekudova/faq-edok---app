@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        fetch("https://script.google.com/macros/s/AKfycbwAcNa-f_SrpjeCtDIlXsApubgcipfWJka1m4AZ6KomJktGq--l02r7O0qJgfJLtVO7/exec", {  
+        fetch("https://script.google.com/macros/s/AKfycbzoM0-WpRWvRxFgYG3yGDUUYvfg9K4C_Rm_tiRvt4QkKUg-ceBOJdfM_9moyHpMuUjQ/exec", {  
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -36,3 +36,4 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
