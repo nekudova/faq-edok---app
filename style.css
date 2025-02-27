@@ -1,32 +1,61 @@
-/* Celé pozadí webu */
 body {
     font-family: Arial, sans-serif;
     background-color: #008080; /* Petrolejová barva */
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     height: 100vh;
     margin: 0;
-    padding: 20px;
 }
 
-/* Kontejner pro obsah */
 .container {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    gap: 50px; /* Mezera mezi formulářem a FAQ boxem */
-    width: 100%;
+    gap: 50px;
+    margin-top: 50px;
 }
 
-/* Formulář */
 .form-container {
     background: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     width: 400px;
-    text-align: center;
+}
+
+h2 {
+    text-align: left;
+    color: white;
+}
+
+.faq-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+
+.faq-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+
+.faq-question {
+    font-weight: bold;
+    cursor: pointer;
+    color: #FF9800;
+}
+
+.faq-answer {
+    display: none;
+    padding-top: 5px;
+    color: #008080;
+    max-height: none;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow: visible;
 }
 
 #faqForm input {
@@ -38,7 +67,7 @@ body {
 }
 
 #faqForm button {
-    background-color: #FF9800; /* Oranžová barva */
+    background-color: #FF9800;
     color: white;
     padding: 10px;
     border: none;
@@ -50,46 +79,9 @@ body {
     background-color: #e68900;
 }
 
-/* Status zpráva */
 #status {
     text-align: center;
     color: green;
     font-weight: bold;
     margin-top: 10px;
-}
-
-/* Často kladené otázky */
-.faq-container {
-    width: 400px;
-    padding: 20px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-.faq-container h1 {
-    text-align: left; /* Zarovnání textu doleva */
-    color: #333;
-}
-
-/* Styly pro otázky a odpovědi */
-.faq-item {
-    border-bottom: 1px solid #ddd;
-    padding: 10px;
-}
-
-.faq-question {
-    font-weight: bold;
-    cursor: pointer;
-    color: #FF9800; /* Oranžová barva */
-}
-
-.faq-answer {
-    display: none;
-    padding-top: 5px;
-    color: #008080; /* Petrolejová barva */
-    max-height: none; /* Zrušení omezení výšky */
-    white-space: normal; /* Povolit zalomení textu */
-    word-wrap: break-word; /* Dlouhá slova se zalomí */
-    overflow: visible; /* Zabránění skrytí textu */
 }
