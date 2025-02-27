@@ -1,9 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
-    fetch("PASTE_GOOGLE_SCRIPT_URL_HERE")
+    fetch("PASTE_GOOGLE_SCRIPT_URL_HERE")  // Sem vlož správný URL od Apps Script!
     .then(response => response.json())
     .then(data => {
-        const faqList = document.getElementById("faq-list");
-        faqList.innerHTML = "";
+        const faqList = document.querySelector(".faq-container");
+        
+        // Vyčistit staré otázky
+        faqList.innerHTML = "<h1>Často kladené otázky</h1>";
 
         data.forEach(entry => {
             const faqItem = document.createElement("div");
@@ -19,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
             answer.innerText = entry.answer;
             faqItem.appendChild(answer);
 
+            // Kliknutím zobrazit/skrýt odpověď
             question.addEventListener("click", () => {
                 answer.style.display = answer.style.display === "block" ? "none" : "block";
             });
