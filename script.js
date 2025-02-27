@@ -1,55 +1,86 @@
 document.addEventListener("DOMContentLoaded", function () {
-    let questions = JSON.parse(localStorage.getItem("faq")) || [];
+    const faqContainer = document.getElementById("faq-container");
+    const loginBtn = document.getElementById("login-btn");
+    const logoutBtn = document.getElementById("logout-btn");
+    const adminSection = document.getElementById("admin-section");
+    const addQuestionBtn = document.getElementById("add-question-btn");
+    const questionInput = document.getElementById("question-input");
+    const answerInput = document.getElementById("answer-input");
 
-    function renderQuestions() {
-        const faqContainer = document.getElementById("faq-container");
+    const ADMIN_PASSWORD = "Budelip25";
+    let isAdmin = false;
+
+    function loadQuestions() {
+        const storedQuestions = JSON.parse(localStorage.getItem("faq")) || [];
         faqContainer.innerHTML = "";
-        questions.forEach((q, index) => {
-            const faqItem = document.createElement("div");
-            faqItem.classList.add("faq-item");
 
-            const questionElement = document.createElement("div");
-            questionElement.classList.add("faq-question");
-            questionElement.textContent = q.question;
-            questionElement.addEventListener("click", () => {
-                answerElement.style.display = answerElement.style.display === "none" ? "block" : "none";
+        storedQuestions.forEach((item, index) => {
+            const questionBox = document.createElement("div");
+            questionBox.classList.add("faq-item");
+
+            const questionText = document.createElement("p");
+            questionText.classList.add("faq-question");
+            questionText.textContent = item.question;
+            questionText.addEventListener("click", () => {
+                answerBox.classList.toggle("hidden");
             });
 
-            const answerElement = document.createElement("div");
-            answerElement.classList.add("faq-answer");
-            answerElement.textContent = q.answer;
-            answerElement.style.display = "none";
+            const answerBox = document.createElement("p");
+            answerBox.classList.add("faq-answer", "hidden");
+            answerBox.textContent = item.answer;
 
-            const editButton = document.createElement("button");
-            editButton.textContent = "Upravit";
-            editButton.classList.add("edit-btn");
-            editButton.addEventListener("click", () => editQuestion(index));
+            questionBox.appendChild(questionText);
+            questionBox.appendChild(answerBox);
 
-            faqItem.appendChild(questionElement);
-            faqItem.appendChild(answerElement);
-            faqItem.appendChild(editButton);
-            faqContainer.appendChild(faqItem);
+            if (isAdmin) {
+                const editBtn = document.createElement("button");
+                editBtn.textContent = "✏️ Upravit";
+                editBtn.addEventListener("click", () => editQuestion(index));
+
+                const deleteBtn = document.createElement("button");
+                deleteBtn.textContent = "❌ Smazat";
+                deleteBtn.addEventListener("click", () => deleteQuestion(index));
+
+                questionBox.appendChild(editBtn);
+                questionBox.appendChild(deleteBtn);
+            }
+
+            faqContainer.appendChild(questionBox);
         });
     }
 
-    function editQuestion(index) {
-        const newQuestion = prompt("Upravte otázku:", questions[index].question);
-        const newAnswer = prompt("Upravte odpověď:", questions[index].answer);
+    function saveQuestions(questions) {
+        localStorage.setItem("faq", JSON.stringify(questions));
+        loadQuestions();
+    }
 
-        if (newQuestion && newAnswer) {
-            questions[index] = { question: newQuestion, answer: newAnswer };
-            localStorage.setItem("faq", JSON.stringify(questions));
-            renderQuestions();
+    function addQuestion() {
+        const question = questionInput.value.trim();
+        const answer = answerInput.value.trim();
+        if (question && answer) {
+            const storedQuestions = JSON.parse(localStorage.getItem("faq")) || [];
+            storedQuestions.push({ question, answer });
+            saveQuestions(storedQuestions);
+            questionInput.value = "";
+            answerInput.value = "";
         }
     }
 
-    document.getElementById("add-question-btn").addEventListener("click", function () {
-        const questionInput = document.getElementById("question-input").value.trim();
-        const answerInput = document.getElementById("answer-input").value.trim();
+    function editQuestion(index) {
+        const storedQuestions = JSON.parse(localStorage.getItem("faq"));
+        const newQuestion = prompt("Upravte otázku:", storedQuestions[index].question);
+        const newAnswer = prompt("Upravte odpověď:", storedQuestions[index].answer);
+        if (newQuestion !== null && newAnswer !== null) {
+            storedQuestions[index] = { question: newQuestion, answer: newAnswer };
+            saveQuestions(storedQuestions);
+        }
+    }
 
-        if (questionInput && answerInput) {
-            questions.push({ question: questionInput, answer: answerInput });
-            localStorage.setItem("faq", JSON.stringify(questions));
-            renderQuestions();
-            document.getElementById("question-input").value = "";
-            document.getElementById("answer-i
+    function deleteQuestion(index) {
+        const storedQuestions = JSON.parse(localStorage.getItem("faq"));
+        storedQuestions.splice(index, 1);
+        saveQuestions(storedQuestions);
+    }
+
+    loginBtn.addEventListener("click", function () {
+        co
