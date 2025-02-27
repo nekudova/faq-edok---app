@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     const faqContainer = document.getElementById("faq-container");
     const adminSection = document.getElementById("admin-section");
+    const loginForm = document.getElementById("login-form");
+    const passwordInput = document.getElementById("password-input");
     const loginBtn = document.getElementById("login-btn");
     const logoutBtn = document.getElementById("logout-btn");
     const addQuestionBtn = document.getElementById("add-question-btn");
@@ -27,12 +29,13 @@ document.addEventListener("DOMContentLoaded", function () {
             const questionElement = document.createElement("div");
             questionElement.classList.add("faq-question");
             questionElement.textContent = item.question;
-            
+
             const answerElement = document.createElement("div");
             answerElement.classList.add("faq-answer");
             answerElement.textContent = item.answer;
-            answerElement.style.display = "none";  
+            answerElement.style.display = "none";
 
+            // Kliknutí na otázku zobrazí odpověď
             questionElement.addEventListener("click", function () {
                 answerElement.style.display = answerElement.style.display === "none" ? "block" : "none";
             });
@@ -47,10 +50,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 editBtn.addEventListener("click", function () {
                     const newQ = prompt("Upravte otázku:", item.question);
                     const newA = prompt("Upravte odpověď:", item.answer);
-                    if (newQ && newA) {
-                        questions[index] = { question: newQ, answer: newA };
-                        saveQuestions();
-                        renderFAQ();
+                    if (newQ !== null && newA !== null) {
+                        if (newQ.trim() !== "" && newA.trim() !== "") {
+                            questions[index] = { question: newQ, answer: newA };
+                            saveQuestions();
+                            renderFAQ();
+                        } else {
+                            alert("Otázka ani odpověď nesmí být prázdná!");
+                        }
                     }
                 });
 
@@ -74,10 +81,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     loginBtn.addEventListener("click", function () {
-        const password = prompt("Zadejte heslo pro administraci:");
+        const password = passwordInput.value;
         if (password === ADMIN_PASSWORD) {
             adminSection.classList.remove("hidden");
-            loginBtn.classList.add("hidden");
+            loginForm.classList.add("hidden");
+            passwordInput.value = "";
             renderFAQ();
         } else {
             alert("Nesprávné heslo!");
@@ -86,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     logoutBtn.addEventListener("click", function () {
         adminSection.classList.add("hidden");
-        loginBtn.classList.remove("hidden");
+        loginForm.classList.remove("hidden");
         renderFAQ();
     });
 
