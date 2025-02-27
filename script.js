@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        fetch("https://script.google.com/macros/s/AKfycbyObKReQTv0Jyds-e75NJCT3lPVToIxOQ7eOR2Gm5S8jerxZ5OQf7kQoGCHD0wYjQcy/exec", {  
+        fetch("https://script.google.com/macros/s/AKfycbwE3c_jUB9EznJVSC9ZQGgVxcFoe9vZMalivM0PG2wTpf2LzyqCLPbFr-h46iUqlcuW/exec", {  
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
