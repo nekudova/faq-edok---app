@@ -83,4 +83,25 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     loginBtn.addEventListener("click", function () {
-        co
+        const password = prompt("Zadejte heslo:");
+        if (password === ADMIN_PASSWORD) {
+            isAdmin = true;
+            adminSection.classList.remove("hidden");
+            loginBtn.classList.add("hidden");
+            loadQuestions();
+        } else {
+            alert("Špatné heslo!");
+        }
+    });
+
+    logoutBtn.addEventListener("click", function () {
+        isAdmin = false;
+        adminSection.classList.add("hidden");
+        loginBtn.classList.remove("hidden");
+        loadQuestions();
+    });
+
+    addQuestionBtn.addEventListener("click", addQuestion);
+
+    loadQuestions();
+});
