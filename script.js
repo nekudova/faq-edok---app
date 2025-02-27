@@ -1,107 +1,85 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const faqContainer = document.getElementById("faq-container");
+    const adminPanel = document.getElementById("admin-panel");
     const loginBtn = document.getElementById("login-btn");
     const logoutBtn = document.getElementById("logout-btn");
-    const adminSection = document.getElementById("admin-section");
-    const addQuestionBtn = document.getElementById("add-question-btn");
-    const questionInput = document.getElementById("question-input");
-    const answerInput = document.getElementById("answer-input");
+    const addQuestionBtn = document.getElementById("add-question");
+    const faqList = document.getElementById("faq-list");
+    const newQuestionInput = document.getElementById("new-question");
+    const newAnswerInput = document.getElementById("new-answer");
 
-    const ADMIN_PASSWORD = "Budelip25";
-    let isAdmin = false;
-
+    // Ukládání do Local Storage
     function loadQuestions() {
-        const storedQuestions = JSON.parse(localStorage.getItem("faq")) || [];
-        faqContainer.innerHTML = "";
-
-        storedQuestions.forEach((item, index) => {
-            const questionBox = document.createElement("div");
-            questionBox.classList.add("faq-item");
-
-            const questionText = document.createElement("p");
-            questionText.classList.add("faq-question");
-            questionText.textContent = item.question;
-            questionText.addEventListener("click", () => {
-                answerBox.classList.toggle("hidden");
-            });
-
-            const answerBox = document.createElement("p");
-            answerBox.classList.add("faq-answer", "hidden");
-            answerBox.textContent = item.answer;
-
-            questionBox.appendChild(questionText);
-            questionBox.appendChild(answerBox);
-
-            if (isAdmin) {
-                const editBtn = document.createElement("button");
-                editBtn.textContent = "✏️ Upravit";
-                editBtn.addEventListener("click", () => editQuestion(index));
-
-                const deleteBtn = document.createElement("button");
-                deleteBtn.textContent = "❌ Smazat";
-                deleteBtn.addEventListener("click", () => deleteQuestion(index));
-
-                questionBox.appendChild(editBtn);
-                questionBox.appendChild(deleteBtn);
-            }
-
-            faqContainer.appendChild(questionBox);
+        const savedQuestions = JSON.parse(localStorage.getItem("questions")) || [];
+        faqList.innerHTML = "";
+        savedQuestions.forEach((item, index) => {
+            const div = document.createElement("div");
+            div.classList.add("faq-item");
+            div.innerHTML = `<div>${item.question}</div><div class="faq-answer">${item.answer}</div>`;
+            faqList.appendChild(div);
         });
     }
 
-    function saveQuestions(questions) {
-        localStorage.setItem("faq", JSON.stringify(questions));
-        loadQuestions();
-    }
-
-    function addQuestion() {
-        const question = questionInput.value.trim();
-        const answer = answerInput.value.trim();
-        if (question && answer) {
-            const storedQuestions = JSON.parse(localStorage.getItem("faq")) || [];
-            storedQuestions.push({ question, answer });
-            saveQuestions(storedQuestions);
-            questionInput.value = "";
-            answerInput.value = "";
-        }
-    }
-
-    function editQuestion(index) {
-        const storedQuestions = JSON.parse(localStorage.getItem("faq"));
-        const newQuestion = prompt("Upravte otázku:", storedQuestions[index].question);
-        const newAnswer = prompt("Upravte odpověď:", storedQuestions[index].answer);
-        if (newQuestion !== null && newAnswer !== null) {
-            storedQuestions[index] = { question: newQuestion, answer: newAnswer };
-            saveQuestions(storedQuestions);
-        }
-    }
-
-    function deleteQuestion(index) {
-        const storedQuestions = JSON.parse(localStorage.getItem("faq"));
-        storedQuestions.splice(index, 1);
-        saveQuestions(storedQuestions);
-    }
-
+    // Přihlášení
     loginBtn.addEventListener("click", function () {
-        const password = prompt("Zadejte heslo:");
-        if (password === ADMIN_PASSWORD) {
-            isAdmin = true;
-            adminSection.classList.remove("hidden");
-            loginBtn.classList.add("hidden");
-            loadQuestions();
+        const password = prompt("Zadejte heslo pro administraci:");
+        if (password === "Budelip25") {
+            adminPanel.classList.remove("hidden");
+            adminPanel.style.opacity = "1";
+            adminPanel.style.transform = "translateY(0)";
         } else {
             alert("Špatné heslo!");
         }
     });
 
+    // Odhlášení
     logoutBtn.addEventListener("click", function () {
-        isAdmin = false;
-        adminSection.classList.add("hidden");
-        loginBtn.classList.remove("hidden");
-        loadQuestions();
+        adminPanel.classList.add("hidden");
+        adminPanel.style.opacity = "0";
+        adminPanel.style.transform = "translateY(-20px)";
     });
 
-    addQuestionBtn.addEventListener("click", addQuestion);
+    // Přidání otázky
+    addQuestionBtn.addEventListener("click", function () {
+        const question = newQuestionInput.value.trim();
+        const answer = newAnswerInput.value.trim();
+        if (question && answer) {
+            const savedQuestions = JSON.parse(localStorage.getItem("questions")) || [];
+            savedQuestions.push({ question, answer });
+            localStorage.setItem("questions", JSON.stringify(savedQuestions));
+            loadQuestions();
+            newQuestionInput.value = "";
+            newAnswerInput.value = "";
+        } else {
+            alert("Vyplňte obě pole!");
+        }
+    });
+
+    // Export otázek
+    document.getElementById("export-btn").addEventListener("click", function () {
+        const savedQuestions = JSON.parse(localStorage.getItem("questions")) || [];
+        const blob = new Blob([JSON.stringify(savedQuestions)], { type: "application/json" });
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = "questions.json";
+        link.click();
+    });
+
+    // Import otázek
+    document.getElementById("import-btn").addEventListener("click", function () {
+        const fileInput = document.getElementById("import-file");
+        const file = fileInput.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (event) {
+                const importedQuestions = JSON.parse(event.target.result);
+                localStorage.setItem("questions", JSON.stringify(importedQuestions));
+                loadQuestions();
+            };
+            reader.readAsText(file);
+        } else {
+            alert("Vyberte soubor k importu!");
+        }
+    });
 
     loadQuestions();
 });
