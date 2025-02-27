@@ -15,8 +15,8 @@ document.getElementById("faqForm").addEventListener("submit", function (event) {
     var question = document.getElementById("question").value;
     var status = document.getElementById("status");
 
-fetch("https://https://script.google.com/macros/s/AKfycbyObKReQTv0Jyds-e75NJCT3lPVToIxOQ7eOR2Gm5S8jerxZ5OQf7kQoGCHD0wYjQcy/exec", {
-    method: "POST",
+fetch("https://script.google.com/macros/s/AKfycbyObKReQTv0Jyds-e75NJCT3lPVToIxOQ7eOR2Gm5S8jerxZ5OQf7kQoGCHD0wYjQcy/exec", {
+   method: "POST",
     headers: {
         "Content-Type": "application/json"
     },
@@ -31,7 +31,6 @@ fetch("https://https://script.google.com/macros/s/AKfycbyObKReQTv0Jyds-e75NJCT3l
     console.error("Chyba:", error);
 });
 
-   
     .then(response => response.text())
     .then(data => {
         status.innerText = data;
