@@ -19,6 +19,7 @@ h1, h2, h3 {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     width: 50%;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .faq-item {
@@ -39,6 +40,50 @@ h1, h2, h3 {
     color: #008080;
     display: none;
     margin-top: 10px;
+}
+
+#admin-login, #admin-panel {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    background-color: #FF9800;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #e68900;
+}
+
+input {
+    padding: 10px;
+    margin: 10px 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 300px;
+}
+
+.admin-section {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
 }
 
 #admin-login {
