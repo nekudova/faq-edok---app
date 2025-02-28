@@ -32,8 +32,12 @@
         "answer": "Doporučený produkt odpovídá parametrům uvedeným v tabulce záznamu, kde jsou specifikovány požadavky klienta, doporučená varianta a sjednané krytí. Klient požadoval (hlavní požadavek), doporučil jsem (důvod doporučení, např. komplexní krytí, nejlepší poměr cena/výkon, širší spektrum připojištění) a nakonec byla sjednána varianta s (hlavní parametry sjednaného produktu). Sjednaný produkt odpovídá konečnému rozhodnutí klienta a reflektuje jeho preference a finanční situaci."
     },
     {
+        "question": "Záznam odpovídá vašim potřebám. (jinak)",
+        "answer": "Doporučený produkt odpovídá vašim potřebám, protože nabízí požadované krytí majetku, odpovědnosti a připojištění proti povodni, které jste označili za klíčové." },
+   },
+    {
         "question": "Tento produkt pokrývá všechny důležité situace?",
-        "answer": "Produkt zahrnuje pojistné krytí pro situace, které klient v záznamu označil za prioritní, tedy (např. invalidita, smrt, pracovní neschopnost). Na základě porovnání dostupných možností byl doporučen produkt, který splňuje tyto požadavky a zajišťuje (klíčové výhody sjednaného produktu). Tato volba byla klientovi vysvětlena, včetně důvodů, proč nebyly zvoleny jiné alternativy. Sjednaný produkt odpovídá jeho konečnému rozhodnutí a reflektuje jeho preference a finanční situaci."
+        "answer": "Produkt zahrnuje pojistné krytí pro situace, které klient v záznamu označil za prioritní, tedy [např. invalidita, smrt, pracovní neschopnost]. Na základě porovnání dostupných možností byl doporučen produkt, který splňuje tyto požadavky a zajišťuje (klíčové výhody sjednaného produktu). Tato volba byla klientovi vysvětlena, včetně důvodů, proč nebyly zvoleny jiné alternativy. Sjednaný produkt odpovídá jeho konečnému rozhodnutí a reflektuje jeho preference a finanční situaci."
     },
     {
         "question": "Proč je tento produkt vhodný pro spoření i pojištění?",
@@ -41,7 +45,7 @@
     },
     {
         "question": "Jak vám tento produkt zajistí finanční ochranu?",
-        "answer": "Klient požadoval finanční ochranu své rodiny v případě úmrtí. Na základě analýzy jeho příjmů, závazků a očekávaných výdajů byla doporučena pojistná částka (např. 2 000 000 Kč), která zajistí pokrytí životních nákladů rodiny po dobu pěti let. Klientovi byly předloženy alternativní možnosti s odlišnou výší krytí a rozsahu připojištění, přičemž se rozhodl pro sjednanou variantu, jelikož nejlépe odpovídá jeho finanční situaci a prioritám. Byly mu vysvětleny podmínky pojistného plnění i výluky, aby mohl učinit informované rozhodnutí."
+        "answer": "Klient požadoval finanční ochranu své rodiny v případě úmrtí. Na základě analýzy jeho příjmů, závazků a očekávaných výdajů byla doporučena pojistná částka [např. 2 000 000 Kč], která zajistí pokrytí životních nákladů rodiny po dobu pěti let. Klientovi byly předloženy alternativní možnosti s odlišnou výší krytí a rozsahu připojištění, přičemž se rozhodl pro sjednanou variantu, jelikož nejlépe odpovídá jeho finanční situaci a prioritám. Byly mu vysvětleny podmínky pojistného plnění i výluky, aby mohl učinit informované rozhodnutí."
     },
     {
         "question": "Klient požaduje základní havarijní pojištění, včetně připojištění skel.",
@@ -49,7 +53,7 @@
      },
     {
         "question": "Klient požaduje základní havarijní pojištění, včetně připojištění skel. (jinak)",
-        "answer": "Na základě klientových preferencí a záznamu v tabulce byly zváženy varianty s různými úrovněmi krytí a spoluúčasti. Byla doporučena varianta s krytím do výše (uveď konkrétní limit) a spoluúčastí (uveď výši spoluúčasti]), protože nejlépe odpovídala klientově ochotě nést část rizika a jeho požadavkům na ([uveď frekvenci placení]) pojistné. Klient byl seznámen s alternativami s nižší a vyšší spoluúčastí a rozhodl se pro tuto variantu, jelikož poskytuje optimální poměr ceny a krytí. Dále byl informován o výlukách, podmínkách pojistného plnění a možnostech rozšíření krytí." 
+        "answer": "Na základě klientových preferencí a záznamu v tabulce byly zváženy varianty s různými úrovněmi krytí a spoluúčasti. Byla doporučena varianta s krytím do výše [uveď konkrétní limit] a spoluúčastí [uveď výši spoluúčasti], protože nejlépe odpovídala klientově ochotě nést část rizika a jeho požadavkům na [uveď frekvenci placení] pojistné. Klient byl seznámen s alternativami s nižší a vyšší spoluúčastí a rozhodl se pro tuto variantu, jelikož poskytuje optimální poměr ceny a krytí. Dále byl informován o výlukách, podmínkách pojistného plnění a možnostech rozšíření krytí." 
      },
     {
         "question": "Klient požaduje povinné ručení, havarijní pojištění, včetně připojištění skel.",
@@ -80,7 +84,7 @@
         "answer": "Pojištění bylo klientovi doporučeno na základě jeho požadavků uvedených v tabulce záznamu. Klient požadoval [uveď hlavní požadavek], doporučili jsme variantu s [uveď důvod doporučení], a nakonec byla sjednána možnost s [uveď konkrétní parametry sjednaného produktu]. Tato varianta nejlépe odpovídá klientovým prioritám v oblasti [uveď hlavní oblast, např. finanční ochrany, flexibility, investiční strategie apod.]."
     },
     {
-        "question": "Záznam odpovídá vašim potřebám. (jinak)",
-        "answer": "Doporučený produkt odpovídá vašim potřebám, protože nabízí požadované krytí majetku, odpovědnosti a připojištění proti povodni, které jste označili za klíčové."
+        "question": "Tento produkt vám vyhovuje.",
+        "answer": "Tento produkt splňuje klientovi požadavky a cíle na pojistné krytí blíže specifikované v tabulce záznamu a cenovou dostupnost, přičemž zahrnuje klíčová rizika a odpovídající limity pojistného plnění. Klientovi byly rovněž vysvětleny podmínky pojistného plnění, výluky a možnosti rozšíření pojistné ochrany. Klient odmítl [uveď co, specifikuj]."
     }
 ]
