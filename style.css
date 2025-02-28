@@ -65,21 +65,48 @@ body {
     margin-top: 10px;
 }
 
-/* Tlačítka */
-.login-btn, .logout-btn, .add-btn {
-    background-color: #FF9800;
-    color: white;
-    padding: 14px 22px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 15px;
-    font-size: 20px;
-    transition: all 0.3s ease;
+/* Skrytí administrátorské sekce při načtení stránky */
+#admin-section {
+    display: none;
 }
 
-.login-btn:hover, .logout-btn:hover, .add-btn:hover {
-    background-color: #e68900;
+/* Formulář pro přidání nové otázky - lepší zarovnání */
+#new-question, #new-answer {
+    width: 250px;
+    padding: 8px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Tlačítko Přidat - lepší styl */
+#add-question-btn {
+    background-color: #FF9800;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Zvětšení ikony v tlačítku */
+#add-question-btn::before {
+    content: "➕";
+    font-size: 18px;
+}
+
+/* Zarovnání tlačítek přihlášení a odhlášení */
+.login-btn, .logout-btn {
+    display: block;
+    width: 150px;
+    margin: 10px auto;
+    text-align: center;
 }
 
 /* Responzivní úpravy pro mobilní zařízení */
