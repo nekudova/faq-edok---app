@@ -1,3 +1,4 @@
+/* Globální nastavení stránky */
 body {
     font-family: Arial, sans-serif;
     background-color: #ffffff; /* Bílé pozadí */
@@ -11,19 +12,19 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px; /* Mezery mezi logem a nadpisem */
+    gap: 20px; /* Mezery mezi logem a nadpisem */
     margin-top: 20px;
 }
 
 /* Logo */
 .logo {
-    width: 80px; /* Přizpůsob velikost loga */
+    width: 200px; /* Zvětšení loga */
     height: auto;
 }
 
 /* Nadpis */
 .faq-header {
-    background-color: #FF9800; /* Oranžové pozadí */
+    background-color: #FF9800; /* Oranžová */
     color: #007A78; /* Petrolejový text */
     font-size: 28px;
     font-weight: bold;
@@ -33,7 +34,7 @@ body {
     max-width: 600px;
 }
 
-/* Otázky */
+/* Otázky - petrolejový rámeček */
 .faq-item {
     background: #007A78; /* Petrolejová barva */
     margin: 15px auto;
@@ -46,14 +47,14 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Otázka */
+/* Otázka - bílý tučný text */
 .faq-question {
     font-weight: bold;
     color: white;
     font-size: 22px;
 }
 
-/* Odpověď */
+/* Odpověď - černý text na bílém pozadí */
 .faq-answer {
     display: none;
     padding: 15px;
@@ -64,10 +65,28 @@ body {
     margin-top: 10px;
 }
 
-/* Responzivní úprava pro mobil */
+/* Tlačítka */
+.login-btn, .logout-btn, .add-btn {
+    background-color: #FF9800;
+    color: white;
+    padding: 14px 22px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+.login-btn:hover, .logout-btn:hover, .add-btn:hover {
+    background-color: #e68900;
+}
+
+/* Responzivní úpravy pro mobilní zařízení */
 @media (max-width: 768px) {
     .faq-header-container {
-        flex-direction: column;
+        flex-direction: column; /* Na mobilu bude logo nad nadpisem */
+        text-align: center;
     }
 
     .logo {
