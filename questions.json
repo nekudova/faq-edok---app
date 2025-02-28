@@ -1,22 +1,26 @@
 [
     {
         "question": "Co je tato aplikace?",
-        "answer": "Jednoduchá FAQ aplikace."
+        "answer": "Jednoduchá FAQ aplikace pro ukázky, jak vhodně vyplňovat Důvody, na kterých VZ zakládá svá doporučení."
     },
     {
-        "question": "Jak správně formulovat radu?",
-        "answer": "Vždy uveďte konkrétní příklad."
+        "question": "Jak správně formulovat důvody doporučení?",
+        "answer": "Správná struktura důvodů doporučení: 1) Požadavky klienta – co klient očekává a proč. 2) Doporučený produkt + důvody – proč daný produkt odpovídá požadavkům. 3) Srovnání s alternativami – proč byly jiné varianty odmítnuty. 4) Dopady sjednání pro klienta – jak ovlivní finanční situaci klienta."
     },
     {
         "question": "Jak mohu kontaktovat podporu?",
         "answer": "Napište nám na email backoffice@astorieas.cz."
     },
     {
-        "question": "PS sepsaná dle požadavků a potřeb klienta.",
+        "question": "Co nesmí v ZZJ chybět?",
+        "answer": "1) Identifikace klienta. 2) Požadavky, potřeby a cíle klienta. 3) Doporučený produkt s jasným důvodem. 4) Specifikace sjednaného produktu. 5) Upozornění na nesvornalosti. 5) Důvody, na kterých zakládá VZ svá doporučení."
+    },
+    {
+        "question": "PS sepsaná dle požadavků a potřeb klientky.",
         "answer": "Pojistná smlouva byla sestavena na základě požadavků klientky uvedených v tabulce záznamu z jednání. Doporučení vycházelo z jejích priorit, které zahrnovaly (např. zajištění hypotéky, dlouhodobé spoření apod.). Na základě porovnání dostupných možností byl doporučen produkt, který splňuje tyto požadavky a zajišťuje (hlavní výhody sjednaného produktu). Tato volba byla klientce vysvětlena, včetně důvodů, proč nebyly zvoleny jiné alternativy. Sjednaný produkt odpovídá jejímu konečnému rozhodnutí a reflektuje její preference a finanční situaci."
     },
     {
-        "question": "Jak vyhovuje vybraný produkt požadavkům klienta?",
+        "question": "Jak vyhovuje vybraný produkt požadavkům klienta.",
         "answer": "Produkt, který byl klientovi doporučen a sjednán, odpovídá jeho požadavkům a cílům, a to tak, jak jsou zaznamenány v tabulce tohoto záznamu z jednání. Tabulka specifikuje požadavky klienta, doporučenou variantu a sjednané krytí. Klient požadoval (hlavní požadavek, např. krytí hypotéky), doporučil jsem variantu s (komplexní krytí, nejlepší poměr cena/výkon, širší spektrum připojištění), a nakonec byla sjednána možnost s (konkrétní parametry sjednaného produktu)."
     },
     {
@@ -28,7 +32,7 @@
         "answer": "Doporučený produkt odpovídá parametrům uvedeným v tabulce záznamu, kde jsou specifikovány požadavky klienta, doporučená varianta a sjednané krytí. Klient požadoval (hlavní požadavek), doporučil jsem (důvod doporučení, např. komplexní krytí, nejlepší poměr cena/výkon, širší spektrum připojištění) a nakonec byla sjednána varianta s (hlavní parametry sjednaného produktu). Sjednaný produkt odpovídá konečnému rozhodnutí klienta a reflektuje jeho preference a finanční situaci."
     },
     {
-        "question": "Tento produkt pokrývá všechny důležité situace.",
+        "question": "Tento produkt pokrývá všechny důležité situace?",
         "answer": "Produkt zahrnuje pojistné krytí pro situace, které klient v záznamu označil za prioritní, tedy (např. invalidita, smrt, pracovní neschopnost). Na základě porovnání dostupných možností byl doporučen produkt, který splňuje tyto požadavky a zajišťuje (klíčové výhody sjednaného produktu). Tato volba byla klientovi vysvětlena, včetně důvodů, proč nebyly zvoleny jiné alternativy. Sjednaný produkt odpovídá jeho konečnému rozhodnutí a reflektuje jeho preference a finanční situaci."
     },
     {
@@ -40,7 +44,7 @@
         "answer": "Klient požadoval finanční ochranu své rodiny v případě úmrtí. Na základě analýzy jeho příjmů, závazků a očekávaných výdajů byla doporučena pojistná částka (např. 2 000 000 Kč), která zajistí pokrytí životních nákladů rodiny po dobu pěti let. Klientovi byly předloženy alternativní možnosti s odlišnou výší krytí a rozsahu připojištění, přičemž se rozhodl pro sjednanou variantu, jelikož nejlépe odpovídá jeho finanční situaci a prioritám. Byly mu vysvětleny podmínky pojistného plnění i výluky, aby mohl učinit informované rozhodnutí."
     },
     {
-        "question": "Klient požaduje základní havarijní pojištění, včetně připojištění skel. ",
+        "question": "Klient požaduje základní havarijní pojištění, včetně připojištění skel.",
         "answer": "Na základě požadavků klienta a porovnání dostupných variant doporučuji pojištění s krytím ve výši [uveď konkrétní limit], které nejlépe odpovídá jeho potřebám, které jsou blíže specifikovány v tabulce záznamu z  jednání. Byly zváženy alternativy s vyšší a nižší spoluúčastí, přičemž klient se rozhodl pro variantu [uveď zvolenou možnost nebo se odkažte na tabulku], protože lépe odpovídala jeho finanční situaci a očekávanému využití vozidla. Klient byl informován o podmínkách pojistného plnění, asistenčních službách, výlukách a možnostech rozšíření pojistné ochrany."
      },
     {
@@ -70,5 +74,13 @@
     {
         "question": "Klient má hypotéku a chce zajistit rodinu v případě úmrtí.",
         "answer": "Doporučený produkt odpovídá požadavkům klienta uvedeným v tabulce záznamu. Klient byl seznámen s možnostmi [uveď čeho, např. pojistného krytí, výší pojistných částek a připojištěními pro trvalé následky úrazu či denní odškodné]. Na základě porovnání variant si klient vybral sjednanou možnost, která nejlépe odpovídá jeho profesnímu zaměření, životnímu stylu a finanční situaci. Zvolená varianta reflektuje jeho potřebu zajistit [uveď čeho, rodinu v případě např. úmrtí]. Klientovi byly vysvětleny podmínky plnění, výluky, podmínky výběru prostředků, dopady na pojistnou ochranu a srovnání s alternativami, na základě čehož se rozhodl pro sjednaný produkt. Detail vývoje produktu je uveden v tzv. simulačním přehledu [tuto větu uvádět pouze, když byla simulace opravdu předložena]."
+     },
+    {
+        "question": "Pojištění je nastavitelné dle potřeb klienta.",
+        "answer": "Pojištění bylo klientovi doporučeno na základě jeho požadavků uvedených v tabulce záznamu. Klient požadoval [uveď hlavní požadavek], doporučili jsme variantu s [uveď důvod doporučení], a nakonec byla sjednána možnost s [uveď konkrétní parametry sjednaného produktu]. Tato varianta nejlépe odpovídá klientovým prioritám v oblasti [uveď hlavní oblast, např. finanční ochrany, flexibility, investiční strategie apod.]."
+    },
+    {
+        "question": "Záznam odpovídá vašim potřebám. (jinak)",
+        "answer": "Doporučený produkt odpovídá vašim potřebám, protože nabízí požadované krytí majetku, odpovědnosti a připojištění proti povodni, které jste označili za klíčové."
     }
 ]
