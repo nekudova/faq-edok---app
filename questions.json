@@ -8,6 +8,10 @@
         "answer": "Vždy uveďte konkrétní příklad."
     },
     {
+        "question": "Jak mohu kontaktovat podporu?",
+        "answer": "Napište nám na email backoffice@astorieas.cz."
+    },
+    {
         "question": "PS sepsaná dle požadavků a potřeb klienta.",
         "answer": "Pojistná smlouva byla sestavena na základě požadavků klientky uvedených v tabulce záznamu z jednání. Doporučení vycházelo z jejích priorit, které zahrnovaly [uveď konkrétní požadavky, např. zajištění hypotéky, dlouhodobé spoření apod.]. Na základě porovnání dostupných možností byl doporučen produkt, který splňuje tyto požadavky a zajišťuje [uveď klíčové výhody sjednaného produktu]. Tato volba byla klientce vysvětlena, včetně důvodů, proč nebyly zvoleny jiné alternativy. Sjednaný produkt odpovídá její konečnému rozhodnutí a reflektuje její preference a finanční situaci."
     },
@@ -28,7 +32,10 @@
         "answer": "Produkt zahrnuje pojistné krytí pro situace, které klient v záznamu označil za prioritní, tedy [uveď konkrétní rizika, např. invalidita, smrt, pracovní neschopnost]. Na základě porovnání dostupných možností byl doporučen produkt, který splňuje tyto požadavky a zajišťuje [uveď klíčové výhody sjednaného produktu]. Tato volba byla klientovi vysvětlena, včetně důvodů, proč nebyly zvoleny jiné alternativy. Sjednaný produkt odpovídá jeho konečnému rozhodnutí a reflektuje jeho preference a finanční situaci."
     },
     {
-        "question": "Jak mohu kontaktovat podporu?",
-        "answer": "Napište nám na email backoffice@astorieas.cz."
-    }
+        "question": "Toto životní pojištění je vhodná varianta, protože ji doporučuji všem klientům hledajícím spoření a pojištění.",
+        "answer": "Klient požaduje produkt, který mu umožní dlouhodobé spoření na důchod a současně poskytne finanční ochranu pro jeho rodinu. Na základě jeho požadavků a analýzy trhu byl doporučen produkt XY, který odpovídá jeho investičnímu horizontu a míře rizika. Klientovi byly předloženy srovnatelné alternativy a byla mu vysvětlena očekávaná výkonnost produktu i možná rizika. Po zvážení všech variant se klient rozhodl pro sjednání tohoto produktu, neboť nejlépe odpovídal jeho požadavkům na kombinaci spoření a pojistné ochrany."
+    },
+    {
+        "question": "Tento produkt vám poskytne finanční ochranu. (rizikové živ. poj.)",
+        "answer": "Klient požadoval finanční ochranu své rodiny v případě úmrtí. Na základě analýzy jeho příjmů, závazků a očekávaných výdajů byla doporučena pojistná částka [2 000 000 Kč], která zajistí pokrytí životních nákladů rodiny po dobu pěti let. Klientovi byly předloženy alternativní možnosti s odlišnou výší krytí a rozsahu připojištění, přičemž se rozhodl pro sjednanou variantu, jelikož nejlépe odpovídá jeho finanční situaci a prioritám. Byly mu vysvětleny podmínky pojistného plnění i výluky, aby mohl učinit informované rozhodnutí."
 ]
