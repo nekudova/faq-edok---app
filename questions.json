@@ -1,6 +1,3 @@
-Opraveno. Odstraněny duplicity, opraven e-mail, sjednoceno formátování a JSON je validní.
-
-```json
 [
   {
     "question": "Co je tato aplikace?",
