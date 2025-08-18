@@ -1,43 +1,57 @@
+// Data – otázky a odpovědi
+const questions = [
+    {
+        question: "Jak zdůvodnit nastavení pojištění podle potřeb klienta?",
+        answer: "Doporučený produkt [název produktu, pojistitel] byl zvolen na základě zjištěných potřeb a cílů klienta...",
+        comment: "Tip: Pokud klient odmítne krytí, vždy uveďte jeho odůvodnění."
+    },
+    {
+        question: "Jaké dokumenty je nutné přiložit k ZZJ?",
+        answer: "Vždy se vyplňuje ZZJ. Základní přílohy: kalkulace, srovnání variant, AML dotazník...",
+        comment: "U životního rezervotvorného pojištění také simulace vývoje smlouvy."
+    }
+    // → můžete přidat další položky
+];
+
+// Najdeme kontejner
+const faqContainer = document.getElementById("faq");
+
+// Vykreslení FAQ
 function renderFAQ() {
     faqContainer.innerHTML = "";
     questions.forEach((item) => {
         const faqItem = document.createElement("div");
         faqItem.classList.add("faq-item");
 
-        // Otázka jako <button>
-        const questionElement = document.createElement("button");
-        questionElement.className = "faq-question";
-        questionElement.type = "button";
+        const questionElement = document.createElement("div");
+        questionElement.classList.add("faq-question");
         questionElement.textContent = item.question;
 
-        // Kontejner odpovědi
         const answerElement = document.createElement("div");
-        answerElement.className = "faq-answer";
+        answerElement.classList.add("faq-answer");
+        answerElement.style.display = "none";
 
-        // Text odpovědi
-        const answerText = document.createElement("div");
-        answerText.className = "answer-text";
-        answerText.textContent = item.answer || "";
+        const answerText = document.createElement("p");
+        answerText.textContent = item.answer;
+        answerElement.appendChild(answerText);
 
-        // Komentář (pokud existuje)
         if (item.comment) {
-            const commentText = document.createElement("div");
-            commentText.className = "comment";
-            commentText.textContent = item.comment;
-            answerElement.appendChild(answerText);
-            answerElement.appendChild(commentText);
-        } else {
-            answerElement.appendChild(answerText);
+            const comment = document.createElement("p");
+            comment.classList.add("faq-comment");
+            comment.textContent = item.comment;
+            answerElement.appendChild(comment);
         }
 
-        // Kliknutí na otázku – otevře/zavře jen tu jednu
         questionElement.addEventListener("click", function () {
-            faqItem.classList.toggle("open");
+            answerElement.style.display =
+                answerElement.style.display === "none" ? "block" : "none";
         });
 
-        // Složení prvků
         faqItem.appendChild(questionElement);
         faqItem.appendChild(answerElement);
         faqContainer.appendChild(faqItem);
     });
 }
+
+// Spustíme při načtení
+document.addEventListener("DOMContentLoaded", renderFAQ);
