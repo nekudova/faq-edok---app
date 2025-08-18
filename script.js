@@ -1,72 +1,98 @@
 document.addEventListener("DOMContentLoaded", async function () {
-  const faqContainer = document.getElementById("faq-container");
+    const faqContainer = document.getElementById("faq-container");
 
-  const GITHUB_USERNAME = "nekudova";
-  const GITHUB_REPO = "faq-edok---app";
-  const GITHUB_FILE_PATH = "questions.json";
+    // GitHub repo s JSON souborem
+    const GITHUB_USERNAME = "nekudova";
+    const GITHUB_REPO = "faq-edok---app";
+    const GITHUB_FILE_PATH = "questions.json";
 
-  /** @type {{question:string, answer:string, comment?:string}[]} */
-  let questions = [];
+    let questions = [];
 
-  async function loadQuestions() {
-    try {
-      const url = `https://raw.githubusercontent.com/${GITHUB_USERNAME}/${GITHUB_REPO}/main/${GITHUB_FILE_PATH}`;
-      const response = await fetch(url, { cache: "no-store" });
-      if (!response.ok) throw new Error("Nepodařilo se načíst otázky.");
-      questions = await response.json();
-      renderFAQ();
-    } catch (error) {
-      console.error("Chyba při načítání otázek:", error);
-      faqContainer.innerHTML = `<div class="faq-error">Chyba načítání dat. Zkuste obnovit stránku.</div>`;
+    // 🔹 Načtení otázek z GitHubu
+    async function loadQuestions() {
+        try {
+            const response = await fetch(`https://raw.githubusercontent.com/${GITHUB_USERNAME}/${GITHUB_REPO}/main/${GITHUB_FILE_PATH}`);
+            if (!response.ok) throw new Error("Nepodařilo se načíst otázky.");
+            questions = await response.json();
+            renderFAQ();
+        } catch (error) {
+            console.error("Chyba při načítání otázek:", error);
+            faqContainer.innerHTML = `<p style="color:red;">❌ Nepodařilo se načíst otázky. Zkontrolujte GitHub repo.</p>`;
+        }
     }
-  }
 
-  function renderFAQ() {
-    faqContainer.innerHTML = "";
+    // 🔹 Vykreslení FAQ
+    function renderFAQ() {
+        faqContainer.innerHTML = "";
+        questions.forEach((item, index) => {
+            const faqItem = document.createElement("div");
+            faqItem.classList.add("faq-item");
 
-    questions.forEach((item, idx) => {
-      const faqItem = document.createElement("div");
-      faqItem.className = "faq-item";
+            // Otázka
+            const questionElement = document.createElement("div");
+            questionElement.classList.add("faq-question");
+            questionElement.textContent = item.question;
 
-      // Otázka (tlačítko)
-      const questionEl = document.createElement("button");
-      questionEl.className = "faq-question";
-      questionEl.type = "button";
-      questionEl.setAttribute("aria-expanded", "false");
-      questionEl.setAttribute("aria-controls", `answer-${idx}`);
-      questionEl.textContent = item.question || "Bez názvu";
+            // Odpověď
+            const answerElement = document.createElement("div");
+            answerElement.classList.add("faq-answer");
+            answerElement.textContent = item.answer;
+            answerElement.style.display = "none";
 
-      // Odpověď
-      const answerWrap = document.createElement("div");
-      answerWrap.className = "faq-answer";
-      answerWrap.id = `answer-${idx}`;
-      answerWrap.hidden = true;
+            // Kliknutí na otázku
+            questionElement.addEventListener("click", function () {
+                const isVisible = answerElement.style.display === "block";
+                document.querySelectorAll(".faq-answer").forEach(el => el.style.display = "none");
+                answerElement.style.display = isVisible ? "none" : "block";
+            });
 
-      const answerText = document.createElement("div");
-      answerText.className = "answer-text";
-      // zachovat nové řádky
-      answerText.textContent = item.answer || "";
+            faqItem.appendChild(questionElement);
+            faqItem.appendChild(answerElement);
+            faqContainer.appendChild(faqItem);
+        });
+    }
 
-      const commentText = document.createElement("div");
-      commentText.className = "comment";
-      commentText.textContent = item.comment || "";
+    // 🔹 Přihlášení do admin sekce (heslo = admin123)
+    const loginBtn = document.getElementById("login-btn");
+    const logoutBtn = document.getElementById("logout-btn");
+    const adminSection = document.getElementById("admin-section");
 
-      answerWrap.appendChild(answerText);
-      if (item.comment) answerWrap.appendChild(commentText);
-
-      // Toggle
-      questionEl.addEventListener("click", () => {
-        const isOpen = !answerWrap.hidden;
-        answerWrap.hidden = isOpen;
-        questionEl.setAttribute("aria-expanded", String(!isOpen));
-        faqItem.classList.toggle("open", !isOpen);
-      });
-
-      faqItem.appendChild(questionEl);
-      faqItem.appendChild(answerWrap);
-      faqContainer.appendChild(faqItem);
+    loginBtn.addEventListener("click", () => {
+        const password = prompt("Zadejte heslo pro přístup do admin sekce:");
+        if (password === "admin123") {
+            adminSection.classList.remove("hidden");
+            loginBtn.style.display = "none";
+            logoutBtn.style.display = "block";
+        } else {
+            alert("❌ Nesprávné heslo!");
+        }
     });
-  }
 
-  loadQuestions();
+    logoutBtn.addEventListener("click", () => {
+        adminSection.classList.add("hidden");
+        loginBtn.style.display = "block";
+        logoutBtn.style.display = "none";
+    });
+
+    // 🔹 Přidání nové otázky (lokálně)
+    const addQuestionBtn = document.getElementById("add-question-btn");
+    addQuestionBtn.addEventListener("click", () => {
+        const newQuestion = document.getElementById("new-question").value.trim();
+        const newAnswer = document.getElementById("new-answer").value.trim();
+
+        if (newQuestion && newAnswer) {
+            questions.push({ question: newQuestion, answer: newAnswer });
+            renderFAQ();
+
+            // Vymazání políček
+            document.getElementById("new-question").value = "";
+            document.getElementById("new-answer").value = "";
+
+            alert("✅ Otázka byla přidána (zatím jen lokálně).");
+        } else {
+            alert("⚠️ Vyplňte obě pole!");
+        }
+    });
+
+    loadQuestions();
 });
