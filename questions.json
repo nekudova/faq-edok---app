@@ -1,54 +1,72 @@
 [
   {
     "question": "Co je tato aplikace?",
-    "answer": "Jednoduchá FAQ aplikace pro ukázky, jak vhodně vyplňovat důvody, na kterých vázaný zástupce zakládá svá doporučení."
+    "answer": "Jednoduchá FAQ aplikace pro ukázky, jak vhodně vyplňovat důvody, na kterých VZ zakládá svá doporučení.",
+    "comment": "Návod: 1) Aplikaci používejte jako tahák při vyplňování ZZJ. 2) Texty z answer jsou vzory – vždy je přepište na konkrétní situaci klienta. 3) Pamatujte, že ČNB hodnotí logiku doporučení, ne krásu formulace."
   },
   {
     "question": "Jak mohu kontaktovat podporu?",
-    "answer": "Napište na e-mail: backoffice@astorieas.cz."
+    "answer": "Napište nám na e-mail: backoffice@astorieas.cz.",
+    "comment": "Návod: 1) Na tento e-mail posílejte metodické dotazy. 2) Neposílejte osobní údaje klientů. 3) V předmětu uveďte „ZZJ – dotaz“ pro rychlejší vyřízení."
   },
   {
     "question": "Jak správně formulovat důvody doporučení?",
-    "answer": "Správná struktura důvodů doporučení:\n\n1) Požadavky klienta – co klient očekává a proč.\n2) Doporučený produkt – proč odpovídá požadavkům.\n3) Srovnání s alternativami – proč byly jiné varianty odmítnuty.\n4) Dopady sjednání – jak ovlivní finanční situaci klienta."
+    "answer": "Správná struktura důvodů doporučení:\n\n1) Požadavky klienta – co klient očekává a proč.\n2) Doporučený produkt – proč odpovídá požadavkům.\n3) Srovnání s alternativami – proč byly jiné varianty odmítnuty.\n4) Dopady sjednání – jak ovlivní finanční situaci klienta.",
+    "comment": "Návod: 1) U každého bodu uvádějte konkrétní data (částky, doby, názvy produktů). 2) Nepište obecné fráze – ČNB požaduje měřitelné důvody. 3) Pokud klient trvá na vlastní volbě, zapište to výslovně."
   },
   {
     "question": "Co nesmí v ZZJ chybět?",
-    "answer": "1) Identifikace klienta\n2) Definice požadavků, potřeb a cílů\n3) Jasné odůvodnění doporučeného produktu\n4) Specifikace sjednaného produktu\n5) Upozornění na nesrovnalosti\n6) Důvody, na kterých zakládá VZ svá doporučení"
+    "answer": "1) Identifikace klienta\n2) Definice požadavků, potřeb a cílů\n3) Jasné odůvodnění doporučeného produktu\n4) Specifikace sjednaného produktu\n5) Upozornění na nesrovnalosti\n6) Důvody, na kterých zakládá VZ svá doporučení",
+    "comment": "Návod: 1) Vždy vyplňte všechny body – i když jsou stručné. 2) Chybějící část je častý důvod výtek při kontrole ČNB. 3) Specifikace sjednaného produktu = přesný název, částka, doba."
   },
   {
     "question": "PS sepsaná dle požadavků a potřeb klientky.",
-    "answer": "Pojistná smlouva byla sestavena podle požadavků klientky uvedených v tabulce záznamu z jednání.\n\nDoporučení vycházelo z jejích priorit, které zahrnovaly [např. zajištění hypotéky, dlouhodobé spoření apod.].\n\nNa základě porovnání dostupných možností byl doporučen produkt, který splňuje tyto požadavky a zajišťuje [hlavní výhody sjednaného produktu].\n\nKlientka byla seznámena s důvody výběru i odmítnutí jiných alternativ."
+    "answer": "Pojistná smlouva byla sestavena podle požadavků klientky uvedených v tabulce záznamu z jednání.\n\nDoporučení vycházelo z jejích priorit, které zahrnovaly [např. zajištění hypotéky, dlouhodobé spoření apod.].\n\nNa základě porovnání dostupných možností byl doporučen produkt, který splňuje tyto požadavky a zajišťuje [hlavní výhody sjednaného produktu].\n\nKlientka byla seznámena s důvody výběru i odmítnutí jiných alternativ.",
+    "comment": "Návod: 1) Vypište jasně všechny priority klientky. 2) Uveďte, proč doporučený produkt splňuje všechny. 3) Pokud klientka požádala konkrétní pojišťovnu, musí to být v ZZJ uvedeno."
   },
   {
     "question": "Odpovídá vybraný produkt požadavkům klienta?",
-    "answer": "Doporučený produkt odpovídá požadavkům a cílům klienta zaznamenaným v tabulce záznamu z jednání.\n\nKlient požadoval [hlavní požadavek, např. krytí hypotéky], doporučili jsme variantu s [komplexní krytí, nejlepší poměr cena/výkon, širší spektrum připojištění], a nakonec byla sjednána možnost s [konkrétní parametry sjednaného produktu]."
+    "answer": "Doporučený produkt odpovídá požadavkům a cílům klienta zaznamenaným v tabulce záznamu z jednání.\n\nKlient požadoval [hlavní požadavek, např. krytí hypotéky], doporučili jsme variantu s [komplexní krytí, nejlepší poměr cena/výkon, širší spektrum připojištění], a nakonec byla sjednána možnost s [konkrétní parametry sjednaného produktu].",
+    "comment": "Návod: 1) Přepište hlavní požadavek klienta. 2) Přiřaďte k němu konkrétní vlastnost produktu. 3) Tím prokážete, že doporučení je opřené o reálnou potřebu."
   },
   {
     "question": "Jaké alternativy byly klientovi vysvětleny?",
-    "answer": "Produkt byl doporučen na základě klientových požadavků uvedených v tabulce záznamu z jednání.\n\nKlient požadoval [hlavní požadavek], porovnali jsme více variant a doporučili tu, která nejlépe odpovídala jeho potřebám.\n\nDůvodem výběru byla [hlavní výhoda produktu, např. komplexní krytí, nejlepší poměr cena/výkon, širší spektrum připojištění]."
+    "answer": "Produkt byl doporučen na základě klientových požadavků, které jsou uvedeny v tabulce záznamu z jednání.\n\nKlient požadoval [hlavní požadavek], porovnali jsme více variant a doporučili tu, která nejlépe odpovídala jeho potřebám.\n\nDůvodem výběru byla [hlavní výhoda produktu, např. komplexní krytí, nejlepší poměr cena/výkon, širší spektrum připojištění].",
+    "comment": "Návod: 1) Uveďte min. 2–3 varianty. 2) U každé napište konkrétní důvod, proč nebyla vybrána. 3) ČNB kontroluje, zda klient měl reálný výběr."
   },
   {
     "question": "Pokrývá tento produkt všechny důležité situace?",
-    "answer": "Produkt zahrnuje pojistné krytí pro situace, které klient označil za prioritní, tedy [např. invalidita, smrt, pracovní neschopnost].\n\nNa základě porovnání dostupných možností byl doporučen produkt, který splňuje tyto požadavky a zajišťuje [hlavní výhody sjednaného produktu]."
+    "answer": "Produkt zahrnuje pojistné krytí pro situace, které klient označil za prioritní, tedy [např. invalidita, smrt, pracovní neschopnost].\n\nNa základě porovnání dostupných možností byl doporučen produkt, který splňuje tyto požadavky a zajišťuje [hlavní výhody sjednaného produktu].",
+    "comment": "Návod: 1) Vyjmenujte rizika, která klient považuje za klíčová. 2) Zkontrolujte, zda jsou v doporučeném produktu krytá. 3) Pokud ne, napište proč chybí."
   },
   {
     "question": "Proč je tento produkt vhodný pro spoření i pojištění?",
-    "answer": "Klient požaduje produkt, který umožní dlouhodobé spoření na důchod a současně poskytne finanční ochranu pro jeho rodinu.\n\nNa základě jeho požadavků a analýzy trhu byl doporučen produkt XY, který odpovídá jeho investičnímu horizontu a míře rizika."
+    "answer": "Klient požaduje produkt, který umožní dlouhodobé spoření na důchod a současně poskytne finanční ochranu pro jeho rodinu.\n\nNa základě jeho požadavků a analýzy trhu byl doporučen produkt XY, který odpovídá jeho investičnímu horizontu a míře rizika.",
+    "comment": "Návod: 1) Spojovací věta: „Klient chce spořit a současně chránit rodinu.“ 2) Uveďte investiční horizont. 3) U rezervotvorných produktů přiložte simulaci."
   },
   {
     "question": "Jak vám tento produkt zajistí finanční ochranu?",
-    "answer": "Klient požadoval finanční ochranu své rodiny v případě úmrtí.\n\nNa základě analýzy jeho příjmů, závazků a očekávaných výdajů byla doporučena pojistná částka [např. 2 000 000 Kč], která zajistí pokrytí životních nákladů rodiny po dobu pěti let."
+    "answer": "Klient požadoval finanční ochranu své rodiny v případě úmrtí.\n\nNa základě analýzy jeho příjmů, závazků a očekávaných výdajů byla doporučena pojistná částka [např. 2 000 000 Kč], která zajistí pokrytí životních nákladů rodiny po dobu pěti let.",
+    "comment": "Návod: 1) Uveďte pojistnou částku a odvoďte ji od příjmů/závazků. 2) Přidejte dobu, na kterou částka pokryje náklady. 3) Tím zdůvodníte výši pojištění."
   },
   {
-    "question": "Je pojištění nastavitelné podle potřeb klienta?",
-    "answer": "Pojištění bylo doporučeno na základě požadavků klienta uvedených v tabulce záznamu.\n\nKlient požadoval [hlavní požadavek], doporučili jsme variantu s [důvod doporučení], a nakonec byla sjednána možnost s [konkrétní parametry sjednaného produktu]."
+    "question": "Jak zdůvodnit nastavení pojištění podle potřeb klienta?",
+    "answer": "Pojištění bylo doporučeno na základě požadavků klienta uvedených v tabulce záznamu.\n\nKlient požadoval [hlavní požadavek], doporučili jsme variantu s [důvod doporučení], a nakonec byla sjednána možnost s [konkrétní parametry sjednaného produktu].",
+    "comment": "Návod: 1) Zapište požadavek klienta. 2) Uveďte, jak jste podle něj nastavili částku, dobu nebo připojištění. 3) Dodejte, proč je tato volba vhodná."
   },
   {
     "question": "Vyhovuje vám tento produkt?",
-    "answer": "Produkt splňuje požadavky a cíle klienta na pojistné krytí.\n\nZahrnuje klíčová rizika, odpovídající limity pojistného plnění a cenovou dostupnost pro klienta.\n\nKlientovi byly vysvětleny podmínky pojistného plnění, výluky a možnosti rozšíření pojistné ochrany."
+    "answer": "Produkt splňuje požadavky a cíle klienta na pojistné krytí.\n\nZahrnuje klíčová rizika, odpovídající limity pojistného plnění a cenovou dostupnost pro klienta.\n\nKlientovi byly rovněž vysvětleny podmínky pojistného plnění, výluky a možnosti rozšíření pojistné ochrany.",
+    "comment": "Návod: 1) Vyjmenujte klíčová rizika a limity. 2) Uveďte, že produkt je finančně dostupný. 3) Zapište, že klient porozuměl výlukám a možnostem."
   },
   {
-    "question": "Detailní zdůvodnění nastavení pojištění",
-    "answer": "Doporučený produkt [název produktu, pojistitel] byl zvolen na základě zjištěných potřeb a cílů klienta, jeho finanční situace a investičních znalostí. Hlavním cílem klienta je [uveďte cíl – např. zajištění dítěte do dospělosti / vytvoření rezervy / krytí rizik]. Navržená pojistná doba [x let] odpovídá stanovenému horizontu ochrany a sjednaná výše pojistného [částka Kč/rok] je přiměřená příjmům a výdajům klienta. Zvolená investiční strategie [uveďte typ] odpovídá jeho zkušenostem, znalostem a ochotě nést investiční riziko. Produkt byl vyhodnocen jako nejvhodnější ve srovnání s ostatními dostupnými možnostmi [uveďte jakými], zejména z hlediska flexibility, rozsahu krytí a nákladovosti.\n\nPokud klient odmítl sjednat některá doporučená krytí: \"Klient výslovně odmítl sjednat [uveďte konkrétní rizika], s odůvodněním [např. existující smlouva u jiného pojistitele]. Byl upozorněn na možné důsledky tohoto rozhodnutí a vzal je na vědomí.\" Stanovená výše pojistného ve výši [ ] Kč ročně je přiměřená finanční situaci klienta a neohrožuje jeho schopnost plnit běžné závazky. Zvolená konzervativní investiční strategie odpovídá jeho nízké toleranci k riziku a potřebě stabilního zhodnocování prostředků. Produkt umožňuje nastavit pojistnou ochranu přesně podle požadovaných limitů a současně nabízí flexibilitu do budoucna. V porovnání s jinými dostupnými produkty (porovnával jsem tyto produkty …) byl vyhodnocen jako nejvhodnější vzhledem ke kombinaci pojistného krytí, investiční strategie a nákladovosti."
+    "question": "Jak zdůvodnit nastavení pojištění podle potřeb klienta?",
+    "answer": "Doporučený produkt [název produktu, pojistitel] byl zvolen na základě zjištěných potřeb a cílů klienta, jeho finanční situace a investičních znalostí. Hlavním cílem klienta je [uveďte cíl – např. zajištění dítěte do dospělosti / vytvoření rezervy / krytí rizik]. Navržená pojistná doba [x let] odpovídá stanovenému horizontu ochrany a sjednaná výše pojistného [částka Kč/rok] je přiměřená příjmům a výdajům klienta. Zvolená investiční strategie [uveďte typ] odpovídá jeho zkušenostem, znalostem a ochotě nést investiční riziko. Produkt byl vyhodnocen jako nejvhodnější ve srovnání s ostatními dostupnými možnostmi[uveďte jakými], zejména z hlediska flexibility, rozsahu krytí a nákladovosti.\n\n Pokud klient odmítl sjednat některá doporučená krytí:„Klient výslovně odmítl sjednat [uveďte konkrétní rizika], s odůvodněním [např. existující smlouva u jiného pojistitele]. Byl upozorněn na možné důsledky tohoto rozhodnutí a vzal je na vědomí.“. Stanovená výše pojistného ve výši [  ]Kč ročně je přiměřená finanční situaci klienta a neohrožuje jeho schopnost plnit běžné závazky. Zvolená konzervativní investiční strategie odpovídá jeho nízké toleranci k riziku a potřebě stabilního zhodnocování prostředků. Produkt umožňuje nastavit pojistnou ochranu přesně podle požadovaných limitů a současně nabízí flexibilitu do budoucna. V porovnání s jinými dostupnými produkty (porovával jsem tyto produkty …..) byl vyhodnocen jako nejvhodnější vzhledem ke kombinaci pojistného krytí, investiční strategie a nákladovosti. Klient výslovně odmítl sjednat [uveďte konkrétní rizika], s odůvodněním [např. existující smlouva u jiného pojistitele]. Byl upozorněn na možné důsledky tohoto rozhodnutí a vzal je na vědomí.",
+    "comment": "Návod: 1) Vypište všechny parametry: částku, dobu, pojistné, investici. 2) Porovnejte s alternativami. 3) Pokud klient odmítl krytí, uveďte důvod. 4) Zapište, že byl upozorněn na důsledky."
+  },
+  {
+    "question": "Jaké dokumenty je nutné přiložit k ZZJ?",
+    "answer": "Vždy se vyplňuje ZZJ.\n\nZákladní přílohy:\n- Kalkulace / srovnání variant\n- AML dotazník\n- PEP ověření (pokud relevantní)\n- U životního rezervotvorného pojištění také simulace vývoje smlouvy\n\nDetailní přehled podle typu produktu a situace viz interní metodický dokument „Povinné přílohy k ZZJ“.",
+    "comment": "Návod: 1) Vždy přiložte kalkulaci. 2) U životního produktu doplňte AML a PEP. 3) U rezervotvorného vždy simulaci. 4) Ostatní viz interní metodiku."
   }
 ]
