@@ -1,37 +1,48 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Otázky a odpovědi k eDOK</title>
-    <link rel="stylesheet" href="style.css?v=3">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Otázky a odpovědi k eDOK</title>
+  <link rel="stylesheet" href="style.css?v=4" />
 </head>
 <body>
+  <!-- HLAVIČKA -->
+  <header class="faq-header-container">
+    <img
+      src="https://raw.githubusercontent.com/nekudova/faq-edok---app/main/_ASTORIE_LOGA_RGB_SLOGAN%201.jpg"
+      alt="Astorie"
+      class="logo"
+    />
+    <h1 class="faq-header">Otázky a odpovědi k eDOK</h1>
+  </header>
 
-    <!-- Kontejner pro logo a nadpis -->
-    <div class="faq-header-container">
-        <img src="https://raw.githubusercontent.com/nekudova/faq-edok---app/main/_ASTORIE_LOGA_RGB_SLOGAN%201.jpg" 
-             alt="Logo společnosti" class="logo">
-        <h1 class="faq-header">Otázky a odpovědi k eDOK</h1>
+  <!-- OBSAH -->
+  <main class="app-wrap">
+    <!-- Volitelně: vyhledávání -->
+    <div class="search-wrap">
+      <input id="search" type="search" placeholder="Hledat dotaz…" aria-label="Hledat v otázkách" />
+      <button id="clear-search" type="button" title="Vymazat">✕</button>
     </div>
 
-    <!-- Kontejner pro otázky a odpovědi -->
-    <div id="faq-container"></div>
+    <!-- Držák FAQ -->
+    <div id="faq-container" class="faq-container" role="list"></div>
 
-    <!-- Tlačítko přihlášení -->
-    <button id="login-btn" class="login-btn">🔑 Přihlásit</button>
+    <!-- Admin -->
+    <button id="login-btn" class="login-btn" type="button">🔑 Přihlásit</button>
 
-    <!-- Administrátorská sekce -->
-    <div id="admin-section" class="admin-section hidden">
-        <h2>Administrace</h2>
-        <button id="logout-btn" class="logout-btn">📌 Odhlásit</button>
+    <section id="admin-section" class="admin-section hidden" aria-hidden="true">
+      <h2>Administrace</h2>
+      <button id="logout-btn" class="logout-btn" type="button">📌 Odhlásit</button>
 
-        <h3>Přidat novou otázku</h3>
-        <input type="text" id="new-question" placeholder="Zadejte otázku...">
-        <input type="text" id="new-answer" placeholder="Zadejte odpověď...">
-        <button id="add-question-btn" class="add-btn">➕ Přidat</button>
-    </div>
+      <h3>Přidat novou otázku</h3>
+      <input id="new-question" type="text" placeholder="Zadejte otázku…" />
+      <textarea id="new-answer" rows="4" placeholder="Zadejte odpověď…"></textarea>
+      <textarea id="new-comment" rows="3" placeholder="Zadejte komentář (volitelné)…"></textarea>
+      <button id="add-question-btn" class="add-btn" type="button">➕ Přidat</button>
+    </section>
+  </main>
 
-    <script src="script.js?v=3"></script>
+  <script src="script.js?v=4"></script>
 </body>
 </html>
