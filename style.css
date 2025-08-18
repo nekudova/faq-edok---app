@@ -1,147 +1,101 @@
-/* Globální nastavení stránky */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #ffffff; /* Bílé pozadí */
-    text-align: center;
-    margin: 0;
-    padding: 0;
+/* ===== Základní proměnné ===== */
+:root{
+  --teal:#007A78;
+  --teal-600:#066a68;
+  --orange:#FF9800;
+  --ink:#0f172a;
+  --muted:#64748b;
+  --bg:#f6f8fa;
+  --card:#ffffff;
+  --ring:#e5e7eb;
 }
 
-/* Kontejner pro logo a nadpis */
-.faq-header-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px; /* Mezery mezi logem a nadpisem */
-    margin-top: 20px;
+/* Globál */
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  text-align:center;
 }
 
-/* Logo */
-.logo {
-    width: 200px; /* Zvětšení loga */
-    height: auto;
+/* Header */
+.faq-header-container{
+  display:flex;align-items:center;justify-content:center;gap:20px;
+  padding:20px 16px 10px;border-bottom:3px solid var(--orange);
+  background:#fff;
+}
+.logo{max-width:180px;height:auto}
+.faq-header{
+  margin:0;background:var(--orange);color:var(--teal);
+  font-size:26px;font-weight:700;padding:14px 22px;border-radius:12px
 }
 
-/* Nadpis */
-.faq-header {
-    background-color: #FF9800; /* Oranžová */
-    color: #007A78; /* Petrolejový text */
-    font-size: 28px;
-    font-weight: bold;
-    padding: 20px;
-    border-radius: 10px;
-    display: inline-block;
-    max-width: 600px;
+/* Kontejner */
+#faq-container{max-width:860px;margin:24px auto;padding:0 16px}
+
+/* Položka */
+.faq-item{
+  background:transparent;margin:14px 0
 }
 
-/* Otázky - petrolejový rámeček */
-.faq-item {
-    background: #007A78; /* Petrolejová barva */
-    margin: 15px auto;
-    padding: 20px;
-    border-radius: 8px;
-    width: 80%;
-    max-width: 600px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    transition: all 0.3s ease;
-    cursor: pointer;
+/* Tlačítko otázky */
+.faq-question{
+  width:100%;text-align:left;cursor:pointer;border:0;
+  background:var(--teal);color:#fff;
+  font-size:18px;font-weight:700;
+  padding:16px 48px 16px 16px;border-radius:12px;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+  position:relative;transition:transform .08s ease, background .2s ease
+}
+.faq-question:hover{background:var(--teal-600);transform:translateY(-1px)}
+/* Chevrons */
+.faq-question::after{
+  content:"▾"; position:absolute; right:16px; top:50%; transform:translateY(-50%) rotate(0);
+  font-size:18px; opacity:.9
+}
+.faq-item.open .faq-question::after{transform:translateY(-50%) rotate(180deg)}
+
+/* Odpověď */
+.faq-answer{
+  background:var(--card);
+  border:1px solid var(--ring);
+  border-radius:12px;
+  margin-top:10px;
+  padding:0 16px; /* při zavřené */
+  max-height:0; overflow:hidden;
+  box-shadow:0 4px 14px rgba(0,0,0,.06);
+  transition:max-height .35s ease, padding .2s ease
+}
+.faq-item.open .faq-answer{
+  padding:16px; max-height:1200px /* dostatečná výška pro delší texty */
 }
 
-/* Otázka - bílý tučný text */
-.faq-question {
-    font-weight: bold;
-    color: white;
-    font-size: 22px;
+/* Texty uvnitř odpovědi */
+.answer-text{white-space:pre-wrap;font-size:16px;color:var(--ink)}
+.comment{
+  margin-top:12px;padding-left:10px;border-left:3px solid var(--ring);
+  color:var(--muted);font-size:14px;font-style:italic
 }
 
-/* Odpověď - černý text na bílém pozadí */
-.faq-answer {
-    display: none;
-    padding: 15px;
-    color: black;
-    font-size: 20px;
-    background-color: white;
-    border-radius: 5px;
-    margin-top: 10px;
+/* Admin */
+#admin-section.hidden{display:none}
+.login-btn,.logout-btn,.add-btn{
+  background:var(--teal);color:#fff;border:0;border-radius:10px;
+  padding:10px 16px;font-size:16px;margin:10px auto;display:block;width:190px;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);transition:opacity .2s ease
 }
+.add-btn{background:var(--orange)}
+.login-btn:hover,.logout-btn:hover,.add-btn:hover{opacity:.9}
 
-/* Skrytí administrátorské sekce při načtení stránky */
-#admin-section.hidden {
-    display: none;
-}
-
-/* Formulář pro přidání nové otázky - lepší zarovnání */
-#new-question, #new-answer {
-    width: 250px;
-    padding: 8px;
-    margin: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-}
-
-/* Tlačítko Přidat - lepší styl */
-#add-question-btn {
-    background-color: #FF9800;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
-
-#add-question-btn:hover {
-    background-color: #e68900;
-}
-
-/* Zarovnání tlačítek přihlášení a odhlášení */
-.login-btn, .logout-btn {
-    display: block;
-    width: 150px;
-    margin: 10px auto;
-    text-align: center;
-    background-color: #007A78;
-    color: white;
-    padding: 10px;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    transition: all 0.3s ease;
-}
-
-.login-btn:hover, .logout-btn:hover {
-    background-color: #005f5d;
-}
-
-/* Responzivní úpravy pro mobilní zařízení */
-@media (max-width: 768px) {
-    .faq-header-container {
-        flex-direction: column; /* Na mobilu bude logo nad nadpisem */
-        text-align: center;
-    }
-
-    .logo {
-        width: 450px; /* Větší logo na mobilu */
-    }
-
-    .faq-header {
-        font-size: 24px;
-        width: 90%;
-        padding: 18px;
-    }
-
-    .faq-question {
-        font-size: 20px;
-    }
-
-    .faq-answer {
-        font-size: 18px;
-    }
+/* Responzivně */
+@media (max-width:768px){
+  .faq-header-container{flex-direction:column;gap:14px}
+  .logo{max-width:220px}
+  .faq-header{font-size:22px}
+  .faq-question{font-size:17px}
+  .answer-text{font-size:15px}
 }
