@@ -1,64 +1,136 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Data – otázky a odpovědi
-    const questions = [
-        {
-            question: "Jak zdůvodnit nastavení pojištění podle potřeb klienta?",
-            answer: "Doporučený produkt [název produktu, pojistitel] byl zvolen na základě zjištěných potřeb a cílů klienta. Poradce při výběru vycházel ze zadaných preferencí, finanční situace a požadovaného rozsahu krytí. Pokud klient odmítl určité krytí, je tato skutečnost zaznamenána do ZZJ.",
-            comment: "Tip: Pokud klient odmítne doplňkové krytí, vždy uveďte jeho odůvodnění – zabráníte tak výtkám při kontrolách ČNB."
-        },
-        {
-            question: "Jaké dokumenty je nutné přiložit k ZZJ?",
-            answer: "Vždy se vyplňuje ZZJ. Základní přílohy zahrnují: kalkulaci, srovnání variant, AML dotazník a další dokumenty dle vnitřních předpisů. U životního rezervotvorného pojištění je nutné připojit i simulaci vývoje smlouvy.",
-            comment: "Pamatujte: ČNB vyžaduje, aby ze ZZJ bylo patrné, proč byla doporučena právě daná varianta."
-        },
-        {
-            question: "Jak pracovat se záznamem, pokud klient přišel s jasnou preferencí (např. chce pojišťovnu Kooperativa)?",
-            answer: "V ZZJ uveďte, že klient od počátku preferoval produkt konkrétní pojišťovny. Poradce ověřil, že produkt odpovídá jeho potřebám, a zaznamenal tuto skutečnost. Zároveň musí být doloženo, že poradce nabídl srovnání s jinými možnostmi.",
-            comment: "Pozor: samotná preference klienta neosvobozuje poradce od povinnosti srovnání."
-        }
-        // Zde můžete přidávat další otázky
-    ];
+document.addEventListener("DOMContentLoaded", () => {
+  const faqContainer = document.getElementById("faq-container");
+  const searchInput = document.getElementById("search");
+  const clearBtn = document.getElementById("clear-search");
 
-    // Najdeme kontejner
-    const faqContainer = document.getElementById("faq-container");
+  // Zdroj dat: 1) lokální soubor questions.json (doporučeno), 2) GitHub raw.
+  const USE_GITHUB = true;
+  const GITHUB_USERNAME = "nekudova";
+  const GITHUB_REPO = "faq-edok---app";
+  const GITHUB_FILE_PATH = "questions.json";
 
-    // Vykreslení FAQ
-    function renderFAQ() {
-        faqContainer.innerHTML = "";
-        questions.forEach((item) => {
-            const faqItem = document.createElement("div");
-            faqItem.classList.add("faq-item");
+  /** @type {{question:string,answer:string,comment?:string}[]} */
+  let questions = [];
+  let filtered = [];
 
-            const questionElement = document.createElement("div");
-            questionElement.classList.add("faq-question");
-            questionElement.textContent = item.question;
-
-            const answerElement = document.createElement("div");
-            answerElement.classList.add("faq-answer");
-            answerElement.style.display = "none";
-
-            const answerText = document.createElement("p");
-            answerText.textContent = item.answer;
-            answerElement.appendChild(answerText);
-
-            if (item.comment) {
-                const comment = document.createElement("p");
-                comment.classList.add("faq-comment");
-                comment.textContent = item.comment;
-                answerElement.appendChild(comment);
-            }
-
-            questionElement.addEventListener("click", function () {
-                answerElement.style.display =
-                    answerElement.style.display === "none" ? "block" : "none";
-            });
-
-            faqItem.appendChild(questionElement);
-            faqItem.appendChild(answerElement);
-            faqContainer.appendChild(faqItem);
-        });
+  async function loadQuestions() {
+    try {
+      const url = USE_GITHUB
+        ? `https://raw.githubusercontent.com/${GITHUB_USERNAME}/${GITHUB_REPO}/main/${GITHUB_FILE_PATH}`
+        : "questions.json";
+      const res = await fetch(url, { cache: "no-store" });
+      if (!res.ok) throw new Error("Načtení selhalo");
+      questions = await res.json();
+      filtered = questions.slice();
+      renderFAQ();
+    } catch (e) {
+      faqContainer.innerHTML =
+        `<div class="answer-text">Chyba načítání dat. Zkontrolujte questions.json.</div>`;
+      console.error(e);
     }
+  }
 
-    // Spustíme při načtení
+  function renderFAQ() {
+    faqContainer.innerHTML = "";
+    filtered.forEach((item, idx) => {
+      const faqItem = document.createElement("div");
+      faqItem.className = "faq-item";
+      faqItem.setAttribute("role", "listitem");
+
+      const qBtn = document.createElement("button");
+      qBtn.className = "faq-question";
+      qBtn.type = "button";
+      qBtn.textContent = item.question || "Bez názvu";
+      qBtn.setAttribute("aria-expanded", "false");
+      qBtn.setAttribute("aria-controls", `ans-${idx}`);
+
+      const ans = document.createElement("div");
+      ans.className = "faq-answer";
+      ans.id = `ans-${idx}`;
+
+      const aText = document.createElement("div");
+      aText.className = "answer-text";
+      aText.textContent = item.answer || "";
+
+      ans.appendChild(aText);
+
+      if (item.comment) {
+        const cText = document.createElement("div");
+        cText.className = "comment";
+        cText.textContent = item.comment;
+        ans.appendChild(cText);
+      }
+
+      qBtn.addEventListener("click", () => {
+        const open = faqItem.classList.toggle("open");
+        qBtn.setAttribute("aria-expanded", String(open));
+      });
+
+      faqItem.appendChild(qBtn);
+      faqItem.appendChild(ans);
+      faqContainer.appendChild(faqItem);
+    });
+  }
+
+  // Vyhledávání
+  function applySearch() {
+    const q = (searchInput?.value || "").toLowerCase().trim();
+    if (!q) {
+      filtered = questions.slice();
+    } else {
+      filtered = questions.filter(
+        (it) =>
+          (it.question && it.question.toLowerCase().includes(q)) ||
+          (it.answer && it.answer.toLowerCase().includes(q)) ||
+          (it.comment && it.comment.toLowerCase().includes(q))
+      );
+    }
     renderFAQ();
+  }
+
+  searchInput?.addEventListener("input", applySearch);
+  clearBtn?.addEventListener("click", () => {
+    if (searchInput) searchInput.value = "";
+    applySearch();
+    searchInput?.focus();
+  });
+
+  // Admin demo (lokální)
+  const loginBtn = document.getElementById("login-btn");
+  const logoutBtn = document.getElementById("logout-btn");
+  const adminSection = document.getElementById("admin-section");
+  const addBtn = document.getElementById("add-question-btn");
+
+  loginBtn?.addEventListener("click", () => {
+    const pwd = prompt("Heslo pro administraci:");
+    if (pwd === "admin123") {
+      adminSection.classList.remove("hidden");
+      adminSection.setAttribute("aria-hidden", "false");
+      loginBtn.style.display = "none";
+    } else {
+      alert("Nesprávné heslo.");
+    }
+  });
+
+  logoutBtn?.addEventListener("click", () => {
+    adminSection.classList.add("hidden");
+    adminSection.setAttribute("aria-hidden", "true");
+    loginBtn.style.display = "block";
+  });
+
+  addBtn?.addEventListener("click", () => {
+    const q = document.getElementById("new-question").value.trim();
+    const a = document.getElementById("new-answer").value.trim();
+    const c = document.getElementById("new-comment").value.trim();
+    if (!q || !a) { alert("Vyplňte otázku i odpověď."); return; }
+    questions.push({ question: q, answer: a, comment: c || undefined });
+    filtered = questions.slice();
+    renderFAQ();
+    document.getElementById("new-question").value = "";
+    document.getElementById("new-answer").value = "";
+    document.getElementById("new-comment").value = "";
+    alert("Otázka přidána (lokálně). Uložení na GitHub řešte pull requestem.");
+  });
+
+  loadQuestions();
 });
