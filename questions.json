@@ -40,14 +40,14 @@
     "comment": "Návod: 1) Vyjmenujte rizika, která klient považuje za klíčová. 2) Zkontrolujte, zda jsou v doporučeném produktu krytá. 3) Pokud ne, napište proč chybí."
   },
   {
-    "question": "Proč je tento produkt vhodný pro spoření i pojištění?",
+    "question": "Proč je tento produkt vhodný pro investování i pojištění?",
     "answer": "Klient požaduje produkt, který umožní dlouhodobé spoření na důchod a současně poskytne finanční ochranu pro jeho rodinu.\n\nNa základě jeho požadavků a analýzy trhu byl doporučen produkt XY, který odpovídá jeho investičnímu horizontu a míře rizika.",
     "comment": "Návod: 1) Spojovací věta: „Klient chce spořit a současně chránit rodinu.“ 2) Uveďte investiční horizont. 3) U rezervotvorných produktů přiložte simulaci."
   },
   {
     "question": "Jak vám tento produkt zajistí finanční ochranu?",
-    "answer": "Klient požadoval finanční ochranu své rodiny v případě úmrtí.\n\nNa základě analýzy jeho příjmů, závazků a očekávaných výdajů byla doporučena pojistná částka [např. 2 000 000 Kč], která zajistí pokrytí životních nákladů rodiny po dobu pěti let.",
-    "comment": "Návod: 1) Uveďte pojistnou částku a odvoďte ji od příjmů/závazků. 2) Přidejte dobu, na kterou částka pokryje náklady. 3) Tím zdůvodníte výši pojištění."
+    "answer": "Klient požadoval finanční ochranu své rodiny v případě úmrtí.\n\nNa základě analýzy jeho příjmů, závazků a očekávaných výdajů byla doporučena pojistná částka [např. 2 000 000 Kč], která zajistí pokrytí životních nákladů rodiny po dobu [dopolnit]let. Porovnání vhodnosti produktů bylo provedeno u těchto pojistitelů: [doplnit] a požadavkům klienta nejlépe vyhovuje [doplnit].",
+    "comment": "Návod: 1) Uveďte pojistnou částku a odvoďte ji od příjmů/závazků. 2) Přidejte dobu, na kterou částka pokryje náklady. 3) Tím zdůvodníte výši pojištění. 4) Přidejte další souvislosti s tímto pojištěním a dejte závěr."
   },
   {
     "question": "Jak zdůvodnit nastavení pojištění podle potřeb klienta?",
